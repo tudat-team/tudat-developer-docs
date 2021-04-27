@@ -76,5 +76,3 @@ a conda package. The responsibilities are as follow:
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``run_test.[py,sh,bat]`` | An **optional** Python test file, a test script that runs automatically if it is part of the recipe. Optional patches that are applied to the source. |
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-.. bibliography::

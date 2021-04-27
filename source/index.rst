@@ -52,10 +52,10 @@ references.
    :maxdepth: 2
    :caption: Topics
 
-   topics/conda
-   topics/pybind11
-   topics/azure
-   topics/sphinx
+   topics/devops
+   topics/software
+   topics/docs
+   topics/bib
 
 .. toctree::
    :maxdepth: 2

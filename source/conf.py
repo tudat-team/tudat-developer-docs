@@ -35,7 +35,7 @@ extensions = [
 ]
 
 # extension specific variables
-bibtex_bibfiles = ['refs.bib']
+bibtex_bibfiles = ['topics/topics.bib']
 bibtex_default_style = 'unsrt'
 
 # Add any paths that contain templates here, relative to this directory.
