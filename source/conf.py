@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Tudat Developer'
-copyright = '2021, ggarrett13'
-author = 'ggarrett13'
+copyright = '2021, tudat-space'
+author = 'tudat-space'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0.0'
