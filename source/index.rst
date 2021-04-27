@@ -13,44 +13,37 @@ documentation, including tutorials, sample code, articles and external API
 references.
 
 .. panels::
-    :container: container-lg pb-5
-    :column: col-lg-3 col-md-2 col-sm-3 col-xs-3 p-2
+    :container: container-lg pb-3
+    :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
 
     ---
-    Managing Conda Packages
+    Manage Releases
 
-    .. link-button:: Conda
+    .. link-button:: Development Operations
           :type: ref
-          :text: Conda
+          :text: Development Operations
           :classes: btn-link stretched-link font-weight-bold
     ---
-    Exposing C++ to Python
+    Develop Source Code
 
-    .. link-button:: pybind11
+    .. link-button:: Software Development
           :type: ref
-          :text: pybind11
-          :classes: btn-link stretched-link font-weight-bold
-
-    ---
-    Managing Conda Builds
-
-    .. link-button:: Azure
-          :type: ref
-          :text: Azure
+          :text: Software Development
           :classes: btn-link stretched-link font-weight-bold
 
     ---
-    Generating Documentation
+    Generate Documentation
 
-    .. link-button:: Sphinx
+    .. link-button:: Documentation
           :type: ref
-          :text: Sphinx
+          :text: Documentation
           :classes: btn-link stretched-link font-weight-bold
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Topics
+   :hidden:
 
    topics/devops
    topics/software
