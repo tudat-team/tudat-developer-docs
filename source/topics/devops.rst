@@ -12,8 +12,8 @@ continuous integration (CI) service.
     :align: center
 
     digraph G {
-        conda [label = "conda", href = "#Test"];
-        start [shape = Mdiamond, label = "start", href = "#Conda", target="_top"];
+        conda [label = "condahj", href = "#conda", target="_top"];
+        start [shape = Mdiamond, label = "start", href = "#cnda", target="_top"];
 
         subgraph cluster_0 {
         style = filled;
