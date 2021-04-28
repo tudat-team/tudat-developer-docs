@@ -1,4 +1,3 @@
-.. _Azure:
 
 Azure
 =====

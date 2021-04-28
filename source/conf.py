@@ -4,6 +4,11 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import sys
+import os
+
+os.environ["PATH"] += os.pathsep + os.path.join(os.environ["CONDA_PREFIX"], "Library/bin/dot")
+
 # -- Path setup --------------------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -31,8 +36,12 @@ release = '1.0.0'
 # ones.
 extensions = [
     "sphinxcontrib.bibtex",
-    'sphinx_panels'
+    'sphinx_panels',
+    "sphinx.ext.graphviz",
+    "sphinx.ext.autosectionlabel"
 ]
+
+graphviz_output_format = 'svg'  # manual: as apposed to .png by default
 
 # extension specific variables
 bibtex_bibfiles = ['topics/topics.bib']

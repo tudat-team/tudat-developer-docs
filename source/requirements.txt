@@ -1,3 +1,0 @@
-insipid-sphinx-theme
-sphinxcontrib-bibtex
-sphinx-panels
