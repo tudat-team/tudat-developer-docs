@@ -7,7 +7,8 @@
 import sys
 import os
 
-os.environ["PATH"] += os.pathsep + os.path.join(os.environ["CONDA_PREFIX"], "Library/bin/dot")
+if os.name == 'nt':
+    os.environ["PATH"] += os.pathsep + os.path.join(os.environ["CONDA_PREFIX"], "Library/bin/dot")
 
 # -- Path setup --------------------------------------------------------------
 
