@@ -12,9 +12,10 @@ continuous integration (CI) service.
    :caption: Topics
    :hidden:
 
-   devops/github
-   devops/conda
-   devops/azure
+   devops/code_collaboration
+   devops/package_manager
+   devops/release_versioning
+   devops/continuous_deployment
 
 Nomenclature
 ------------
