@@ -97,7 +97,7 @@ The concepts can be broken down into the following elements:
     notes: "None"
 
     functions:
-      clear_kernels:
+      - name: clear_kernels
         short_summary: "Clear all loaded spice kernels."
         extended_summary: |
           This function removes all Spice kernels from the kernel pool.
@@ -112,30 +112,43 @@ Functions
 .. note:: The following list is for overview. For a more detailed description
       of each section, with examples, please go to `numpydoc`_.
 
-1. **Short summary**: A one-line summary that does not use variable names or
-   the function name.
+.. dropdown:: 1. Short summary: **A one-line summary that does not use variable names or
+               the function name.**
+    :title: text-info font-weight-bold
 
-2. **Deprecation warning**: A section (use if applicable) to warn users that
-   the object is deprecated.
+.. dropdown:: 2. Deprecation warning: **A section (use if applicable) to warn users that
+               the object is deprecated.**
+    :title: text-info font-weight-bold
 
-3. **Extended Summary**: A few sentences giving an extended description. This
-   section should be used to clarify functionality, not to discuss
-   implementation detail or background theory, which should rather
-   be explored in the Notes section below.
+.. dropdown:: 3. Extended Summary: **A few sentences giving an extended description.**
+    :title: text-info font-weight-bold
 
-4. **Parameters**: Description of the function arguments, keywords and their
-   respective types.
+    This section should be used to clarify functionality, not to discuss
+    implementation detail or background theory, which should rather
+    be explored in the Notes section below.
 
-5. **Returns**: Explanation of the returned values and their types. Similar to
-   the Parameters section, except the name of each return value is optional
+.. dropdown:: 4. Parameters: **Description of the function arguments, keywords and their respective types.**
+    :title: text-info font-weight-bold
 
-6. **Yields**: Explanation of the yielded values and their types. This is
-   relevant to generators only. Similar to the Returns section in that the
-   name of each value is optional, but the type of each value is always
-   required.
+.. dropdown:: 5. **Returns**: Explanation of the returned values and their types.
+    :title: text-info font-weight-bold
 
-7. **Receives**: Explanation of parameters passed to a generator’s ``.send()``
-   method, formatted as for Parameters, above.
+    Similar to the Parameters section, except the name of each return value is optional.
+
+.. dropdown:: 6. **Yields**: Explanation of the yielded values and their types. This is relevant to generators only.
+    :title: text-info font-weight-bold
+
+    Similar to the Returns section in that the name of each value is optional,
+    but the type of each value is always required.
+
+.. dropdown:: 7. **Receives**: Explanation of parameters passed to a generator’s ``.send()`` method, formatted as for Parameters, above.
+    :title: text-info font-weight-bold
+
+.. dropdown:: 8. **Other Parameters**: An optional section used to describe infrequently used parameters.
+    :title: text-info font-weight-bold
+
+     It should only be used if a function has a large number of
+     keyword parameters, to prevent cluttering the Parameters section.
 
 8. **Other Parameters**: An optional section used to describe infrequently used
    parameters. It should only be used if a function has a large number of

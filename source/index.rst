@@ -50,6 +50,20 @@ references.
    topics/docs
    topics/bib
 
+Follow tutorials that demonstrate specific tasks that concern the maintenance,
+development, and documentation of Tudat.
+
+.. note:: The following items are **placeholders**.
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Tutorials
+
+   tutorials/new_conda_package
+   tutorials/new_tudat_function
+   tutorials/new_tudat_class
+   tutorials/new_tudat_module
+
 .. toctree::
    :maxdepth: 3
    :caption: Resources
