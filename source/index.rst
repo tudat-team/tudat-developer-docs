@@ -41,7 +41,7 @@ references.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Topics
    :hidden:
 
@@ -51,5 +51,9 @@ references.
    topics/bib
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Core resources
+   :maxdepth: 3
+   :caption: Resources
+   :hidden:
+
+   resources/commands
+   resources/tools

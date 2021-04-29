@@ -10,7 +10,18 @@ continuous integration (CI) service.
 .. toctree::
    :maxdepth: 2
    :caption: Topics
+   :hidden:
 
    devops/github
    devops/conda
    devops/azure
+
+Nomenclature
+------------
+
+    - **Continuous Integration (CI)**: :ref:`atlassian-ci-cd`
+    - **Continuous Delivery (CD)**: :ref:`atlassian-ci-cd`
+    - **Continuous Deployment (CD)**: :ref:`atlassian-ci-cd`
+
+
+https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
