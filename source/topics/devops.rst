@@ -7,15 +7,7 @@ source solutions for development; GitHub for its hosted version control
 system (VCS), :ref:`Conda` for it's package manager, and :ref:`Azure` for it's
 continuous integration (CI) service.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Topics
-   :hidden:
 
-   devops/code_collaboration
-   devops/release_versioning
-   devops/package_manager
-   devops/continuous_deployment
 
 .. panels::
     :column: col-lg-12 p-0
@@ -86,5 +78,14 @@ continuous integration (CI) service.
     .. image:: https://anaconda.org/tudat-team/tudatpy/badges/platforms.svg
         :target: https://anaconda.org/tudat-team/tudatpy
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Topics
+   :hidden:
+
+   devops/code_collaboration
+   devops/release_versioning
+   devops/package_manager
+   devops/continuous_deployment
 
 .. _test: https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
