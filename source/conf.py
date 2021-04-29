@@ -39,6 +39,7 @@ extensions = [
     "sphinxcontrib.bibtex",
     'sphinx_panels',
     "sphinx.ext.graphviz",
+    # 'sphinx_toolbox.shields',
     # 'sphinx.ext.todo'
     "sphinx.ext.autosectionlabel"
 ]
