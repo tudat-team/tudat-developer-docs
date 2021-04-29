@@ -28,3 +28,10 @@ the ``conda-forge`` community: ``conda-smithy``.
 .. note:: ``conda-smithy`` can also be used as a continuous integration (CI)
         and continuous delivery system.
 
+Azure
+-----
+
+Microsoft Azure, commonly referred to as Azure, is a cloud computing service
+created by Microsoft for building, testing, deploying, and managing
+applications and services through Microsoft-managed data centers.
+

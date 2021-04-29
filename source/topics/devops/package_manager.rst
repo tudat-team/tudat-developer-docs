@@ -6,7 +6,7 @@ Package Management
     :column: col-lg-12 p-0
     :header: text-secondary font-weight-bold
 
-    :fa:`arrows-alt,mr-1` Learning Objective
+    :fa:`graduation-cap` Learning Objective
 
     ^^^
 

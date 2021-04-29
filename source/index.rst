@@ -17,28 +17,41 @@ references.
     :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
 
     ---
-    Manage Releases
 
     .. link-button:: Development Operations
           :type: ref
           :text: Development Operations
-          :classes: btn-link stretched-link font-weight-bold
+          :classes: btn-outline-primary btn-block
+
+    ^^^
+
+    :ref:`Code Collaboration`
+
+    :ref:`Release Versioning`
+
+    :ref:`Package Management`
+
+    :ref:`Continuous Deployment`
+
     ---
-    Develop Source Code
 
     .. link-button:: Software Development
           :type: ref
           :text: Software Development
-          :classes: btn-link stretched-link font-weight-bold
+          :classes: btn-outline-primary btn-block
+
+    ^^^
+
+
 
     ---
-    Generate Documentation
 
-    .. link-button:: Documentation
+    .. link-button:: Documentation Design
           :type: ref
-          :text: Documentation
-          :classes: btn-link stretched-link font-weight-bold
+          :text: Documentation Design
+          :classes: btn-outline-primary btn-block
 
+    ^^^
 
 .. toctree::
    :maxdepth: 3
@@ -63,6 +76,7 @@ development, and documentation of Tudat.
    tutorials/new_tudat_function
    tutorials/new_tudat_class
    tutorials/new_tudat_module
+   tutorials/pdf_with_sphinx
 
 .. toctree::
    :maxdepth: 3

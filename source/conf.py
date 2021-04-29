@@ -20,6 +20,15 @@ if os.name == 'nt':
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+# -- CUSTOM: Latex Customization
+
+# latex_elements = {
+#     "maketitle": "\\input{cover.tex}"
+# }
+
+# -- CUSTOM: FontAwesome Inline Icons https://sphinx-panels.readthedocs.io/en/latest/#inline-icons
+html_css_files = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
+panels_add_fontawesome_latex = True
 
 # -- Project information -----------------------------------------------------
 

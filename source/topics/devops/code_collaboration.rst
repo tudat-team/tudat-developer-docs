@@ -6,20 +6,15 @@ Code Collaboration
     :column: col-lg-12 p-0
     :header: text-secondary font-weight-bold
 
-    :fa:`arrows-alt,mr-1` Learning Objective(s)
+    :fa:`graduation-cap` Learning Objective(s)
 
     ^^^
-
-    This section describes the processes and tools that go into building,
-    testing and deploying packages hosted in the cloud, enabling the
-    following badges:
 
     .. code-block:: bash
 
         git clone <repo>
         git commit -m "Message"
         git push
-
 
 Develop and Master Branches
 ---------------------------
@@ -31,7 +26,7 @@ It's also convenient to tag all commits in the master branch with a version
 number. :cite:p:`atlassian-gitflow`
 
 .. raw:: html
-    :file: _static/gitflow1.svg
+    :file: graphics/gitflow1.svg
 
 Feature Branches
 ----------------
@@ -43,5 +38,5 @@ complete, it gets merged back into develop. Features should never interact
 directly with master. :cite:p:`atlassian-gitflow`
 
 .. raw:: html
-    :file: _static/gitflow2.svg
+    :file: graphics/gitflow2.svg
 

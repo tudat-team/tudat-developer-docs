@@ -1,7 +1,7 @@
-Multidoc
-========
+API Documentation
+=================
 
-Multidoc is a tool for purposed towards improving maintainability and
+**Multidoc** is a tool for purposed towards improving maintainability and
 consistency of docstrings in software that is available across multiple
 programming languages, with fixed language equivalent APIs.
 
