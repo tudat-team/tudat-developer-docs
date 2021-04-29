@@ -1,6 +1,6 @@
 
-Continuous Deployment (CD)
-==========================
+Continuous Deployment
+=====================
 
 .. panels::
     :column: col-lg-12 p-0

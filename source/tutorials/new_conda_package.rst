@@ -1,4 +1,4 @@
 
-Adding a package to Conda
+Adding a Package to Conda
 =========================
 
