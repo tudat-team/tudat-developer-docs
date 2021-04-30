@@ -10,11 +10,11 @@ Code Collaboration
 
     ^^^
 
-    .. code-block:: bash
+    1. Understand the differences between Git and Github.
+    2. Installing and configuring Git for use.
+    3. Create, clone and manage repositories from Github.
+    4. Understand the Tudat Git workflow.
 
-        git clone <repo>
-        git commit -m "Message"
-        git push
 
 Develop and Master Branches
 ---------------------------
