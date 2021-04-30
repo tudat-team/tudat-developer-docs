@@ -12,6 +12,7 @@ Notes
 - Link checking is facilitated by sphinx using ``make linkcheck`` (on windows)
 - Add section on FontAwesome inline icons from ``sphinx-panels``
 - https://fontawesome.com/
+- Add tutorial/ section on maintaining a bibliography in Sphinx.
 
 Useful Sphinx Extensions
 ------------------------

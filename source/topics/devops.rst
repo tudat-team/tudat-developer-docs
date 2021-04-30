@@ -35,14 +35,11 @@ continuous integration (CI) service.
 
     ^^^
 
-    This section describes the use of the following command:
+    1. Understand ``MAJOR.MINOR.PATCH`` and when each of them are bumped.
 
-    .. code-block:: bash
+    2. Understand what happens when ``rever <new_version_number>`` is executed.
 
-        rever <new_version_number>
-
-    which takes complete care of releasing new versions to be merged onto the
-    main git branch.
+    3. Understand how to maintain the automated changelog.
 
 
 .. panels::
