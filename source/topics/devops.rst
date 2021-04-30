@@ -16,7 +16,7 @@ continuous integration (CI) service.
     ^^^
 
     1. Understand the differences between Git and Github.
-    2. Installing and configuring Git for use.
+    2. Installing and configuring the ``git`` command for use.
     3. Create, clone and manage repositories from Github.
     4. Understand the Tudat Git workflow.
 
