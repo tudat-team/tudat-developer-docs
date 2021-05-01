@@ -4,6 +4,19 @@ Tudat Developer Change Log
 
 .. current developments
 
+v0.0.7
+====================
+
+**Changed:**
+
+* ``author`` variable is now retrieve directly from rever ``AUTHORS`` files
+    during the building of docs.
+
+**Authors:**
+
+
+
+
 v0.0.6
 ====================
 
