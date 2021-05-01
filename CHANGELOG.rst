@@ -4,6 +4,20 @@ Tudat Developer Change Log
 
 .. current developments
 
+v0.0.8
+====================
+
+**Changed:**
+
+* Fixed Change Log formatting. (Basically figuring out consistent workflow
+  for ``rever`` with these commits)
+
+**Authors:**
+
+* Geoffrey H. Garrett
+
+
+
 v0.0.7
 ====================
 
