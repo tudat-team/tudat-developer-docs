@@ -44,7 +44,7 @@ copyright = '2021, Tudat Space'
 author = 'Tudat Space'
 
 # The full version, including alpha/beta/rc tags
-release='authors'
+release='author'
 
 # -- General configuration ---------------------------------------------------
 
