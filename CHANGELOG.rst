@@ -4,6 +4,14 @@ Tudat Developer Change Log
 
 .. current developments
 
+vauthor
+====================
+
+**Authors:**
+
+
+
+
 vauthors
 ====================
 
