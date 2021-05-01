@@ -84,6 +84,10 @@ One of the most helpful features of rever is the changelog activity.
 This activity produces a changelog by colating news files. The changelog is
 written into the repo and can be used in the GitHub release activity.
 
+.. important:: Ensure that you have one commit prior to executing
+        ``rever <MAJOR.MINOR.PATCH>``, otherwise you will not appear as an
+        author on the Change Log.
+
 1. Go into the ``news/`` directory
 
 2. Copy the ``TEMPLATE.rst`` file to another file in the ``news/`` directory. We suggest using the branchname:

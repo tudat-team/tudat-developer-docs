@@ -18,7 +18,7 @@ v0.0.9
 
 **Authors:**
 
-
+* Geoffrey H. Garrett
 
 
 v0.0.8

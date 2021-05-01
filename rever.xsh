@@ -1,6 +1,6 @@
 $PROJECT = 'Tudat Developer'
 $ACTIVITIES = [
-              'authors',
+              'authors', # authors must have commit before executing Rever, otherwise he/she will be omitted.
               'version_bump',  # Changes the version number in various source files (setup.py, __init__.py, etc)
               'changelog',  # Uses files in the news folder to create a changelog for release
               'tag',  # Creates a tag for the new version number
