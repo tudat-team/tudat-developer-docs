@@ -94,3 +94,4 @@ development, and documentation of Tudat.
 
    resources/commands
    resources/tools
+   ./../CHANGELOG

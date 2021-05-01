@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 
 /build
-# Rever
+# Rever (or rever related)
 rever/
+source/CHANGELOG.rst
