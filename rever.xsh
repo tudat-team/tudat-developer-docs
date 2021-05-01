@@ -17,8 +17,7 @@ $CHANGELOG_FILENAME = 'CHANGELOG.rst'  # Filename for the changelog
 $CHANGELOG_TEMPLATE = 'TEMPLATE.rst'  # Filename for the news template
 $CHANGELOG_AUTHORS_TITLE = 'Authors'
 $CHANGELOG_AUTHORS_FORMAT = '* {name}\n'
-
-$PUSH_TAG_REMOTE = 'git@github.com:tudat-team/tudat-developer-docs.git'  # Repo to push tags to
+$PUSH_TAG_REMOTE = 'https://github.com/tudat-team/tudat-developer-docs.git'  # Repo to push tags to
 
 $GITHUB_ORG = 'tudat-team'  # Github org for Github releases and conda-forge
 $GITHUB_REPO = 'tudat-developer-docs'  # Github repo for Github releases  and conda-forge
