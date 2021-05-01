@@ -4,6 +4,19 @@ Tudat Developer Change Log
 
 .. current developments
 
+v0.0.6
+====================
+
+**Changed:**
+
+* Changed ``rever.xsh`` activity ordering. Placed author activity as first.
+
+**Authors:**
+
+* Geoffrey H. Garrett
+
+
+
 v0.0.5
 ====================
 
