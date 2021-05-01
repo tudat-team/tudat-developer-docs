@@ -10,11 +10,11 @@ v0.0.7
 **Changed:**
 
 * ``author`` variable is now retrieve directly from rever ``AUTHORS`` files
-    during the building of docs.
+  during the building of docs.
 
 **Authors:**
 
-
+* Geoffrey H. Garrett
 
 
 v0.0.6
