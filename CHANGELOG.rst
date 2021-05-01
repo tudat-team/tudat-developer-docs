@@ -4,6 +4,23 @@ Tudat Developer Change Log
 
 .. current developments
 
+v0.0.9
+====================
+
+**Added:**
+
+* Tutorial: Re-rendering a ``conda-smithy`` feedstock (placeholder)
+* Todo for renaming file aforementioned tutorial.
+
+**Fixed:**
+
+* Fixed all errors/warnings during ``make html`` for sphinx docs.
+
+**Authors:**
+
+
+
+
 v0.0.8
 ====================
 
