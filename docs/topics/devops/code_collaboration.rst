@@ -2,6 +2,32 @@
 Code Collaboration
 ==================
 
+This section describes the use of Git and Github in relation to standard
+Tudat developer use cases. This chapter does not serve as a complete tutorial
+on Git, but rather as an extension to the workflow used by Tudat Space.
+
+.. panels::
+    :column: col-lg-12 p-0
+    :header: text-secondary font-weight-bold
+
+    :fa:`users` Mission Brief
+
+    ^^^
+    .. table::
+        :widths: 20 60 10
+
+        +--------------+------------------------------------------+--------------+
+        | **Audience** | **Prerequisite(s)**                      | **Time**     |
+        +--------------+------------------------------------------+--------------+
+        | Git Beginner | .. link-button:: http://bit.ly/git-begin | ~ 10 minutes |
+        |              |     :classes: btn-success btn-block      |              |
+        |              |     :text: git - the simple guide        |              |
+        +--------------+------------------------------------------+--------------+
+
+    .. note:: **Using Conda?** Git comes with the Anaconda and Miniconda
+            distributions by default. If you are using Conda, the setup step
+            can be skipped in the guide.
+
 .. panels::
     :column: col-lg-12 p-0
     :header: text-secondary font-weight-bold
@@ -14,7 +40,6 @@ Code Collaboration
     2. Installing and configuring Git for use.
     3. Create, clone and manage repositories from Github.
     4. Understand the Tudat Git workflow.
-
 
 Develop and Master Branches
 ---------------------------

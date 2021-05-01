@@ -1,6 +1,0 @@
-
-Developer Environment
-=====================
-
-tudat-bundle
-------------

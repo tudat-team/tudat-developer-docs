@@ -1,0 +1,10 @@
+.wy-nav-content {
+    max-width: 800px !important;
+}
+
+svg {
+    width: 85%;
+    text-align:center;
+    display: block;
+    margin: auto;
+}

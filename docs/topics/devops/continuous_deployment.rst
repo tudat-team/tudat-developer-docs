@@ -31,6 +31,12 @@ the ``conda-forge`` community: ``conda-smithy``.
 .. note:: ``conda-smithy`` can also be used as a continuous integration (CI)
         and continuous delivery system.
 
+.. attention::
+
+    Please ensure to use the recommended following command to install
+    `conda-smithy`. If not installed in the base environment, you may need to
+    reinstall Miniconda/Anaconda from scratch.
+
 Azure
 -----
 
