@@ -7,6 +7,8 @@
 * Added :ref:`News Workflow` to :ref:`Release Versioning` topic. Currently
   identical and unadapted from https://regro.github.io/rever-docs/news.html.
 
+* Added todo for elaborating on ``osx_arm64`` build variants.
+
 **Changed:**
 
 * <news item>
