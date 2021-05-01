@@ -86,6 +86,7 @@ development, and documentation of Tudat.
    tutorials/new_tudat_class
    tutorials/new_tudat_module
    tutorials/pdf_with_sphinx
+   tutorials/rerendering_a_feedstock
 
 .. toctree::
    :maxdepth: 3
@@ -95,3 +96,5 @@ development, and documentation of Tudat.
    resources/commands
    resources/tools
    ./../CHANGELOG
+
+.. todo:: (*) Rename ``rerendering_a_feedstock.rst`` to  ``rerendering_feedstocks.rst``

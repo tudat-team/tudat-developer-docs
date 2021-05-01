@@ -5,8 +5,13 @@ API Documentation
 consistency of docstrings in software that is available across multiple
 programming languages, with fixed language equivalent APIs.
 
-Nomenclature
-------------
+.. panels::
+    :column: col-lg-12 p-0
+    :header: text-secondary font-weight-bold
+
+    :fa:`list` **Nomenclature**
+
+    ^^^
 
     - **Application Programming Interface (API)**: An interface that defines
       interactions between multiple software applications or mixed
@@ -81,7 +86,7 @@ The concepts can be broken down into the following elements:
 
 .. code-block:: yaml
    :caption: ``module.yaml``
-   :name: api-def
+   :name: module-def
 
     description: |
       Provides interfaces for external API.
@@ -91,7 +96,7 @@ The concepts can be broken down into the following elements:
 
 .. code-block:: yaml
    :caption: ``spice.yaml``
-   :name: api-def
+   :name: submodule-def
 
     description: "This module provides an interface to the Spice package."
     notes: "None"

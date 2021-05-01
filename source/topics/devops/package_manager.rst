@@ -17,17 +17,25 @@ Package Management
 
         conda install tudatpy  # -c tudat-team
 
+Conda
+-----
+
 Conda is in open source package manager that runs on Windows, macOS and Linux.
 It is popular in the Python community, as it was originally intended to handle
 Python programs primarily but due to its ability to package and distribute
 software for any language, its use has grown significantly.
 
-Nomenclature
-------------
-The following list of nomenclature serves as an index which developers can
-refer to when needed, and will be the foundation of knowledge for this topic.
-Feel free to browse the citations and hyperlinks, although it is not required
-to follow the remainder of the topic.
+.. panels::
+    :column: col-lg-12 p-0
+    :header: text-secondary font-weight-bold
+
+    :fa:`list` **Nomenclature**
+
+    ^^^
+    The following list of nomenclature serves as an index which developers can
+    refer to when needed, and will be the foundation of knowledge for this topic.
+    Feel free to browse the citations and hyperlinks, although it is not required
+    to follow the remainder of the topic.
 
     - **Environment**: A directory that contains a specific collection of
       **conda** packages that you have installed.
@@ -54,6 +62,8 @@ to follow the remainder of the topic.
       versions of software that your application depends on. The high-level
       is to "freeze" dependencies so that subsequent builds/deployments are
       repeatable.
+
+    .. todo:: Discuss both alternative layout styles for Nomenclature
 
 .. _`pip`: https://pypi.org/project/pip/
 .. _`zlib`: https://zlib.net/
