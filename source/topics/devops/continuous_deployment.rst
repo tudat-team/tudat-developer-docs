@@ -37,6 +37,11 @@ the ``conda-forge`` community: ``conda-smithy``.
     `conda-smithy`. If not installed in the base environment, you may need to
     reinstall Miniconda/Anaconda from scratch.
 
+.. todo::
+
+    Elaborate on ``osx_arm64`` cross-compiled build variants. (This may only
+    apply to the private ``tudat-team`` channel?)
+
 Azure
 -----
 
