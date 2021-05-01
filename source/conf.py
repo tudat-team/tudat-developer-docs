@@ -9,7 +9,7 @@ import os
 if os.name == 'nt':
     os.environ["PATH"] += os.pathsep + os.path.join(os.environ["CONDA_PREFIX"], "Library/bin/dot")
 
-# -- CUSTOM: Retrieve CHANGELOG on top level
+# -- CUSTOM: Retrieve CHANGELOG on top level for each rebuild
 
 import shutil
 shutil.copyfile("../CHANGELOG.rst", "./CHANGELOG.rst")
@@ -44,7 +44,7 @@ copyright = '2021, Tudat Space'
 author = 'Tudat Space'
 
 # The full version, including alpha/beta/rc tags
-release='0.0.2'
+release='0.0.3'
 
 # -- General configuration ---------------------------------------------------
 
