@@ -64,3 +64,6 @@ Rever: Releaser of Versions!
 
     $GITHUB_ORG = 'tudat-team'  # Github org for Github releases and conda-forge
     $GITHUB_REPO = 'tudat-developer-docs'  # Github repo for Github releases  and conda-forge
+
+Maintaining the Change Log
+***************************
