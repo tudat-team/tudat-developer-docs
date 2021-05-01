@@ -6,4 +6,8 @@ Software Development
    :maxdepth: 2
    :caption: Topics
 
-   software/pybind11
+   software/build_system
+   software/environment
+   software/exposing_cpp
+   software/extending_features
+

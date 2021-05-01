@@ -28,9 +28,10 @@ continuous integration (CI) service.
 
     ^^^
 
-    1. Understand ``MAJOR.MINOR.PATCH`` and when each of them are bumped.
-    2. Understand what happens when ``rever <new_version_number>`` is executed.
-    3. Understand how to maintain the automated changelog.
+    1. Understand what "dependency hell" is and how to avoid it.
+    2. Understand ``MAJOR.MINOR.PATCH`` and when each of them are bumped.
+    3. Understand what happens when ``rever <new_version_number>`` is executed.
+    4. Understand how to maintain the automated changelog.
 
 .. panels::
     :column: col-lg-12 p-0
@@ -55,9 +56,12 @@ continuous integration (CI) service.
 
     ^^^
 
-    This section describes the processes and tools that go into building,
-    testing and deploying packages hosted in the cloud, enabling the
-    following badges:
+    1. Understand what ``conda-forge`` is, and what their role is with respect
+       to Conda packages.
+    2. Understand how ``conda-smithy`` builds, tests and packages across target OS'.
+    3. Know how to inspect build status' of packages on Azure and re-trigger them.
+    4. Understand common problems encountered in this workflow and how to
+       resolve them.
 
     .. image:: https://anaconda.org/tudat-team/tudatpy/badges/version.svg
         :target: https://anaconda.org/tudat-team/tudatpy

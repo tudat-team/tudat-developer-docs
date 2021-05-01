@@ -35,6 +35,16 @@ references.
 
     ---
 
+    .. link-button:: Software Documentation
+          :type: ref
+          :text: Software Documentation
+          :classes: btn-outline-primary btn-block
+
+    ^^^
+
+
+    ---
+
     .. link-button:: Software Development
           :type: ref
           :text: Software Development
@@ -42,16 +52,15 @@ references.
 
     ^^^
 
+    :ref:`Build System`
+
+    :ref:`Developer Environment`
+
+    :ref:`Extending Features`
+
+    :ref:`Exposing C++ in Python`
 
 
-    ---
-
-    .. link-button:: Documentation Design
-          :type: ref
-          :text: Documentation Design
-          :classes: btn-outline-primary btn-block
-
-    ^^^
 
 .. toctree::
    :maxdepth: 3
@@ -59,8 +68,8 @@ references.
    :hidden:
 
    topics/devops
-   topics/software
    topics/docs
+   topics/software
    topics/bib
 
 Follow tutorials that demonstrate specific tasks that concern the maintenance,

@@ -6,13 +6,16 @@ Continuous Deployment
     :column: col-lg-12 p-0
     :header: text-secondary font-weight-bold
 
-    :fa:`arrows-alt,mr-1` Learning Objective
+    :fa:`graduation-cap` Learning Objectives
 
     ^^^
 
-    This section describes the processes and tools that go into building,
-    testing and deploying packages hosted in the cloud, enabling the
-    following badges:
+    1. Understand what ``conda-forge`` is, and what their role is with respect
+       to Conda packages.
+    2. Understand how ``conda-smithy`` builds, tests and packages across target OS'.
+    3. Know how to inspect build status' of packages on Azure and re-trigger them.
+    4. Understand common problems encountered in this workflow and how to
+       resolve them.
 
     .. image:: https://anaconda.org/tudat-team/tudatpy/badges/version.svg
         :target: https://anaconda.org/tudat-team/tudatpy

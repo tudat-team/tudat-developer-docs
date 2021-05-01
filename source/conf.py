@@ -30,14 +30,17 @@ if os.name == 'nt':
 html_css_files = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
 panels_add_fontawesome_latex = True
 
+# -- CUSTOM: sphinx.ext.todo
+todo_include_todos = True
+
 # -- Project information -----------------------------------------------------
 
 project = 'Tudat Developer'
-copyright = '2021, tudat-space'
-author = 'tudat-space'
+copyright = '2021, Tudat Space'
+author = 'Tudat Space'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
 
@@ -49,7 +52,7 @@ extensions = [
     'sphinx_panels',
     "sphinx.ext.graphviz",
     # 'sphinx_toolbox.shields',
-    # 'sphinx.ext.todo'
+    'sphinx.ext.todo',
     "sphinx.ext.autosectionlabel"
 ]
 
