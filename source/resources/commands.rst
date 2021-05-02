@@ -27,3 +27,25 @@ Commands
 :download:`Git Cheat Sheet <git-cheatsheet.pdf>`
 
 :download:`Conda Cheat Sheet <git-cheatsheet.pdf>`
+
+.. note:: **Tired of retyping your Git credentials in the Command-line?**
+
+    .. attention:: This method saves the credentials in plaintext on your PC's
+            disk. Everyone on your computer can access it, e.g. malicious NPM
+            modules.
+
+    Run
+
+    .. code-block:: bash
+
+        git config --global credential.helper store
+
+    then
+
+    .. code-block:: bash
+
+        git pull
+
+    provide a username and password and those details will then be remembered
+    later. The credentials are stored in a file on the disk, with the disk
+    permissions of "just user readable/writable" but still in plaintext.
