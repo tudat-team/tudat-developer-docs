@@ -6,12 +6,14 @@
 
 import sys
 import os
+
 if os.name == 'nt':
     os.environ["PATH"] += os.pathsep + os.path.join(os.environ["CONDA_PREFIX"], "Library/bin/dot")
 
 # -- CUSTOM: Retrieve CHANGELOG on top level for each rebuild
 
 import shutil
+
 shutil.copyfile("../CHANGELOG.rst", "./CHANGELOG.rst")
 
 # -- Path setup --------------------------------------------------------------
@@ -41,10 +43,16 @@ todo_include_todos = True
 
 project = 'Tudat Developer'
 copyright = '2021, Tudat Space'
-author = 'Tudat Space'
+
+# Custom: Make authors automatically retrieve, in order of Rever's ordering,
+#    and added as documentation authors.
+import re
+
+with open("../AUTHORS", "r") as f:
+    author = ', '.join(list(re.findall(r"^\*\s(.*)", f.read(), re.MULTILINE)))
 
 # The full version, including alpha/beta/rc tags
-release='author'
+release='0.0.10'
 
 # -- General configuration ---------------------------------------------------
 

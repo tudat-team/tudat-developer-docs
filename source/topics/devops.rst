@@ -7,6 +7,11 @@ source solutions for development; GitHub for its hosted version control
 system (VCS), :ref:`Conda` for it's package manager, and :ref:`Azure` for it's
 continuous integration (CI) service.
 
+.. todo:: Discuss with team whether learning goals should be presented at this
+        level or whether a clean practical use case of the section should be
+        presented. (i.e. Package Management: ``conda install tudatpy``, what
+        goes on behind the scenes into making this possible?)
+
 .. panels::
     :column: col-lg-12 p-0
     :header: text-secondary font-weight-bold

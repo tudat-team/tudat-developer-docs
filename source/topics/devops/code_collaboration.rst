@@ -3,7 +3,8 @@ Code Collaboration
 ==================
 
 This section describes the use of Git and Github in relation to standard
-Tudat developer use cases.
+Tudat developer use cases. This chapter does not serve as a complete tutorial
+on Git, but rather as an extension to the workflow used by Tudat Space.
 
 .. note::
         Git comes with the Anaconda and Miniconda
@@ -39,60 +40,27 @@ Tudat developer use cases.
 
     5. Make your first contribution to Tudat.
 
+.. note:: **Tired of retyping your Git credentials in the Command-line?**
 
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
+    .. attention:: This method saves the credentials in plaintext on your PC's
+            disk. Everyone on your computer can access it, e.g. malicious NPM
+            modules.
 
-    :fa:`users` Mission Brief
+    Run
 
-    ^^^
-    If you choose to follow along with the primer, you will complete
-    the following:
+    .. code-block:: bash
 
-    - Clone the `Developer Primer`_ repository.
-    - Collaborate with others by sharing an interest of yours on a feature
-      branch.
-    - Hotfix a fellow collaborators typo in their contributed interest.
+        git config --global credential.helper store
 
-Clone A Repository
-------------------
+    then
 
-Cloning a repository is simple. Each repository on GitHub has a dropdown
-under a ``Code`` button. After entering your desired directory, the
-`Developer Primer`_ repository can be cloned by:
+    .. code-block:: bash
 
-.. _`Developer Primer`: https://github.com/tudat-team/developer-primer.git
+        git pull
 
-.. code-block:: bash
-
-    git clone https://github.com/tudat-team/developer-primer.git
-
-You now have a local repository set to the ``master`` branch of the ``remote``
-`Developer Primer`_ repository. 🎉
-
-.. code-block::
-
-    developer-primer
-    ├── AUTHORS
-    ├── CHANGELOG.rst
-    ├── docs
-    │   ├── build
-    │   ├── make.bat
-    │   ├── Makefile
-    │   └── source
-    ├── environment.yaml
-    ├── LICENSE
-    ├── news
-    │   └── TEMPLATE.rst
-    │  
-    ├── README.md
-    │  
-    └── rever.xsh
-
-There's a lot going on in the Repository structure, don't be overwhelmed. By
-the end of the Primer, you will have all the knowledge required to navigate it
-like a pro Tudat Developer.
+    provide a username and password and those details will then be remembered
+    later. The credentials are stored in a file on the disk, with the disk
+    permissions of "just user readable/writable" but still in plaintext.
 
 Develop and Master Branches
 ---------------------------
