@@ -2,10 +2,12 @@
 Release Versioning
 ==================
 
-.. attention:: The only way for this section to be relevant, is if **all**
-    developers follow the details closely. No more than what is needed in your
-    workflow, and minor details for establishing a mental knowledge map will
-    be provided here. Please read thoroughly!
+The release versioning section describes the
+
+.. attention::
+    This will perhaps be the most overlooked chapter at first, though this is
+    will **definitely** be the most loved one when Tudat Developers realise
+    how beautiful ``rever`` really is.
 
 .. panels::
     :column: col-lg-12 p-0
@@ -19,13 +21,6 @@ Release Versioning
     2. Understand ``MAJOR.MINOR.PATCH`` and when each of them are bumped.
     3. Understand what happens when ``rever <new_version_number>`` is executed.
     4. Understand how to maintain the automated changelog.
-
-
-This section describes the bookkeeping required in maintaining a changelog
-with a Tudat repository. The system is simple, and only requires a consistent
-approach and a decent understanding of ``Rever``. The result is a well kept
-changelog, providing traceability in development.
-
 
 Semantic Versioning
 -------------------
