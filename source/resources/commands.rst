@@ -73,3 +73,6 @@ Commands
         +-------------------+--------------------------------------+
         | ``git branch -a`` | To see all local and remote branches |
         +-------------------+--------------------------------------+
+
+
+- Visual Git: https://marklodato.github.io/visual-git-guide/index-en.html
