@@ -22,3 +22,7 @@ $PUSH_TAG_REMOTE = 'https://github.com/tudat-team/tudat-developer-docs.git'  # R
 
 $GITHUB_ORG = 'tudat-team'  # Github org for Github releases and conda-forge
 $GITHUB_REPO = 'tudat-developer-docs'  # Github repo for Github releases  and conda-forge
+
+# Author related -------------------------------------------------------------#
+$BIBTEX_AUTHORS = "Test"
+$BIBTEX_PROJECT_NAME = $PROJECT.replace(" ","_").lower()
