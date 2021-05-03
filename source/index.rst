@@ -82,11 +82,11 @@ development, and documentation of Tudat.
    :caption: Tutorials
 
    tutorials/new_conda_package
+   tutorials/new_forge_feedstock
    tutorials/new_tudat_function
    tutorials/new_tudat_class
    tutorials/new_tudat_module
    tutorials/pdf_with_sphinx
-   tutorials/rerendering_a_feedstock
 
 .. toctree::
    :maxdepth: 3
