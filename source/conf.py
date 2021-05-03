@@ -87,11 +87,15 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "insipid"
-html_add_permalinks = '\N{SECTION SIGN}'
-html_context = {'display_github': True, 'github_user': 'sphinx-themes', 'github_repo': 'sphinx-themes.org',
-                'conf_py_path': '/sample-docs/', 'commit': 'master'}
-html_copy_source = False
+
+html_theme = "furo"
+# html_theme = "insipid"
+
+if html_theme == "insipid":
+    html_add_permalinks = '\N{SECTION SIGN}'
+    html_context = {'display_github': True, 'github_user': 'sphinx-themes', 'github_repo': 'sphinx-themes.org',
+                    'conf_py_path': '/sample-docs/', 'commit': 'master'}
+    html_copy_source = False
 
 # html_theme = 'alabaster'
 
