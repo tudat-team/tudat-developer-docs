@@ -38,13 +38,12 @@ Cloning a Repository
 --------------------
 
 Cloning a repository is a straightforward process. Each repository on GitHub
-has a green :badge:`Clone,badge-success badge-pill` button. You can then choose
-to "Clone with HTTPS" by clicking the clipboard icon under the dropdown and
-executing:
+has a green :badge:`Code,badge-success badge-pill` button. After clicking this
+button, you can then choose to "Clone with HTTPS" by clicking the clipboard
+icon under the dropdown and executing:
 
 .. code-block:: bash
 
-    cd <target_directory>
     git clone <repository_url>
 
 The primary version of the repository source code will be cloned.
@@ -68,21 +67,23 @@ The primary version of the repository source code will be cloned.
     ^^^
 
     After entering your desired directory with the ``cd`` command, clone the
-    `Developer Primer`_ repository:
-
-    .. _`Developer Primer`: https://github.com/tudat-team/developer-primer.git
+    ``developer-primer`` repository :cite:p:`developer-primer0.0.1`:
 
     .. code-block:: bash
 
         $ git clone https://github.com/tudat-team/developer-primer.git
 
     You now have a local repository set to the ``main`` branch of the remote
-    `Developer Primer`_ repository 🎉
+    `developer-primer` repository 🎉
 
     .. code-block::
 
         developer-primer
-        ├── AUTHORS
+        ├── .authors
+        │   ├── AUTHORS
+        │   ├── .authors.yml
+        │   └── .mailmap
+        ├── bibtex.bib
         ├── CHANGELOG.rst
         ├── docs
         │   ├── build
@@ -90,13 +91,14 @@ The primary version of the repository source code will be cloned.
         │   ├── Makefile
         │   └── source
         ├── environment.yaml
+        ├── .gitignore
         ├── LICENSE
         ├── news
         │   └── TEMPLATE.rst
-        │  
-        ├── README.md
-        │  
-        └── rever.xsh
+        ├── README.rst
+        ├── rever.xsh
+        └── source
+            └── tree_trunk.txt
 
     There's a lot going on in the Repository structure, don't be overwhelmed. By
     the end of the Primer, you will have all the knowledge required to navigate it
@@ -154,8 +156,8 @@ invaluable as it provides two major benefits:
 
     ^^^
 
-    With the `Developer Primer`_ repository cloned, check
-    what branches exist on the remote:
+    With the ``developer-primer`` repository :cite:p:`developer-primer0.0.1`
+    cloned, check what branches exist on the remote:
 
     .. code-block:: console
 
@@ -221,9 +223,9 @@ Continue your work and use Git as demonstrated beforehand.
 
     ^^^
 
-    With the `Developer Primer`_ repository, ensure that the ``develop``
-    branch is checked out, and create a new local feature branch with your
-    Github username as the feature name.
+    With the ``developer-primer`` repository :cite:p:`developer-primer0.0.1`,
+    ensure that the ``develop`` branch is checked out, and create a new local
+    feature branch with your Github username as the feature name.
 
     .. code-block:: console
 
@@ -294,8 +296,9 @@ merge the ``feature/name`` into ``develop``.
 
     ^^^
 
-    Continuing with the `Developer Primer`_ repository, checkout the ``develop``
-    branch in your local repository and merge your feature into it.
+    Continuing with the ``developer-primer`` repository :cite:p:`developer-primer0.0.1`,
+    checkout the ``develop`` branch in your local repository and merge your
+    feature into it.
 
     .. code-block:: console
 

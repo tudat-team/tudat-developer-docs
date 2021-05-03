@@ -7,18 +7,9 @@ Tudat Developer Change Log
 v0.0.11
 ====================
 
-**Authors:**
-
-* Geoffrey H. Garrett
-
-
-
-v0.0.11
-====================
-
 **Added:**
 
-* :ref:`Clone A Repository`
+* :ref:`Cloning a Repository`
 * Trial "Mission Brief" detailing practical tasks in primer.
 * Content in :ref:`Develop and Master Branches` for switching to ``develop``
   branch in Tudat Git workflow.
