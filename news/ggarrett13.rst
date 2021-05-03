@@ -6,8 +6,8 @@
   branch in Tudat Git workflow.
 * Note on ``git branch`` and variants in detailing local and remote branches
   available.
-* Added :ref:`Feature Branches` and :ref:`Release Branches` to explain the
-  Git flow used by the Tudat Team.
+* Added :ref:`Feature Branches`. Placeholders added for :ref:`Release Branches`
+  and :ref:`Hotfix Branches` to explain the Gitflow Workflow.
 
 **Changed:**
 
