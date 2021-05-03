@@ -7,6 +7,15 @@ Tudat Developer Change Log
 v0.0.11
 ====================
 
+**Authors:**
+
+* Geoffrey H. Garrett
+
+
+
+v0.0.11
+====================
+
 **Added:**
 
 * :ref:`Clone A Repository`
