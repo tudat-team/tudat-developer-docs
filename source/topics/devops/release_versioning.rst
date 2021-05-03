@@ -7,7 +7,7 @@ Release Versioning
 The release versioning section describes the workflow and tools used in release
 versioning used as a Tudat Developer.
 
-.. admonition:: :fa:`graduation-cap` Example
+.. admonition:: :fa:`graduation-cap` Learning Objectives
 
     1. Understand what "dependency hell" is and how to avoid it.
     2. Understand ``MAJOR.MINOR.PATCH`` and when each of them are bumped.
