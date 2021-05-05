@@ -2,20 +2,10 @@
 Package Management
 ==================
 
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
 
-    :fa:`graduation-cap` Learning Objective
+.. admonition:: :fa:`graduation-cap` Learning Objectives
 
-    ^^^
-
-    This section describes the processes and tools that go into the following
-    executable command using Conda:
-
-    .. code-block:: bash
-
-        conda install tudatpy  # -c tudat-team
+    .. include:: objectives/package_manager.rst
 
 Conda
 -----
@@ -24,46 +14,6 @@ Conda is in open source package manager that runs on Windows, macOS and Linux.
 It is popular in the Python community, as it was originally intended to handle
 Python programs primarily but due to its ability to package and distribute
 software for any language, its use has grown significantly.
-
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`list` **Nomenclature**
-
-    ^^^
-    The following list of nomenclature serves as an index which developers can
-    refer to when needed, and will be the foundation of knowledge for this topic.
-    Feel free to browse the citations and hyperlinks, although it is not required
-    to follow the remainder of the topic.
-
-    - **Environment**: A directory that contains a specific collection of
-      **conda** packages that you have installed.
-
-    - **Anaconda**: A distribution of the Python and R programming languages
-      for specific computing (data science, machine learning applications,
-      large-scale data processing, predictive analytics, etc.)
-      :cite:p:`anaconda`
-
-    - **Bootstrap**: A bootstrap is the program that initializes the operating
-      system (OS) during startup (Only relevant for next nomenclature item).
-
-    - **Miniconda**: Miniconda is a free minimal installer for conda. It is a
-      small, bootstrap version of Anaconda that includes only conda, Python,
-      the packages they depend on, and a small number of other useful packages,
-      including `pip`_, `zlib`_ and a few others. :cite:p:`miniconda`
-
-    - **Recipe**: A `Conda-build recipe`_ is a flat directory that contains
-      a specific collection of files which defines a package's dependencies,
-      description (branding), build procedure (when applicable) and test
-      procedure.
-
-    - **Pinning**: Pinning dependencies refers to explicitly defining the
-      versions of software that your application depends on. The high-level
-      is to "freeze" dependencies so that subsequent builds/deployments are
-      repeatable.
-
-    .. todo:: Discuss both alternative layout styles for Nomenclature
 
 .. admonition:: Nomenclature
 

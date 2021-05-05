@@ -74,5 +74,8 @@ Commands
         | ``git branch -a`` | To see all local and remote branches |
         +-------------------+--------------------------------------+
 
+.. attention:: INCREDIBLE Bash scripting cheatsheet
+
+    https://devhints.io/bash
 
 - Visual Git: https://marklodato.github.io/visual-git-guide/index-en.html

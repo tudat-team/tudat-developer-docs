@@ -20,19 +20,10 @@ workflow (or Gitflow) used by a Tudat Developer.
 |              |     :text: git - the simple guide        |              |
 +--------------+------------------------------------------+--------------+
 
+.. admonition:: :fa:`graduation-cap` Learning Objectives
+    :class: learning-objectives
 
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`graduation-cap` Learning Objective(s)
-
-    ^^^
-
-    1. Understand the differences between Git and Github.
-    2. Clone and manage repositories from Github.
-    3. Understand the Tudat Git workflow.
-    4. Make your first contribution to Tudat.
+    .. include:: objectives/code_collaboration.rst
 
 Cloning a Repository
 --------------------
@@ -58,13 +49,7 @@ The primary version of the repository source code will be cloned.
     .. todo::
         Update all graphics, documentation and repositories to the new default ``main``.
 
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`terminal` **Try it yourself!**
-
-    ^^^
+.. admonition:: :fa:`terminal` **Try it yourself!**
 
     After entering your desired directory with the ``cd`` command, clone the
     ``developer-primer`` repository :cite:p:`developer-primer0.0.1`:
@@ -148,13 +133,7 @@ invaluable as it provides two major benefits:
     - ``git pull origin develop`` replaced by shorthand ``git pull``
 2. Git will now inform you about "unpushed" and "unpulled" commits.
 
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`terminal` **Try it yourself!**
-
-    ^^^
+.. admonition:: :fa:`terminal` **Try it yourself!**
 
     With the ``developer-primer`` repository :cite:p:`developer-primer0.0.1`
     cloned, check what branches exist on the remote:
@@ -215,13 +194,7 @@ Creating a feature branch
 
 Continue your work and use Git as demonstrated beforehand.
 
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`terminal` **Try it yourself!**
-
-    ^^^
+.. admonition:: :fa:`terminal` **Try it yourself!**
 
     With the ``developer-primer`` repository :cite:p:`developer-primer0.0.1`,
     ensure that the ``develop`` branch is checked out, and create a new local
@@ -236,8 +209,13 @@ Continue your work and use Git as demonstrated beforehand.
         Switched to a new branch 'feature/ggarrett13_was_here'
 
     After creating a feature that is appropriate for the planned work, carry
-    out the work! Append "<your_github_name> was here!" to the symbolic tree
+    out the work! Just for sake of example in modifying the ``source`` of a
+    project, carve "<your_github_name> was here!" to the tree
     trunk contained in the source directory, using the command:
+
+    .. note::
+        This is just some arbitrary example "work" of modifying a projects
+        source code for sake of example, not a convention or standard.
 
     .. code-block:: console
 
@@ -257,8 +235,7 @@ Continue your work and use Git as demonstrated beforehand.
 
         $ git add source/tree_trunk.txt
 
-
-    Finally, add the commit the changes made to your feature branch:
+    Finally, commit the changes made to your feature branch:
 
     .. code-block:: console
 
@@ -275,26 +252,12 @@ Finishing a feature branch
 When you’re done with the development work on the feature, the next step is to
 merge the ``feature/name`` into ``develop``.
 
-.. tabbed:: Standard ``git``
-
-    .. code-block:: console
+.. code-block:: console
 
         $ git checkout develop
         $ git merge feature/name
 
-.. tabbed:: With ``git-flow`` extension
-
-    .. code-block:: console
-
-        $ git flow feature finish feature_name
-
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`terminal` **Try it yourself!**
-
-    ^^^
+.. admonition:: :fa:`terminal` **Try it yourself!**
 
     Continuing with the ``developer-primer`` repository :cite:p:`developer-primer0.0.1`,
     checkout the ``develop`` branch in your local repository and merge your
@@ -343,13 +306,7 @@ Hotfix Branches
         the Tudat Developer workflow, but will be soon!
 
 
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`list` **Chapter Summary**
-
-    ^^^
+.. admonition:: :fa:`list` **Chapter Summary**
 
     **Gitflow Workflow** :cite:p:`atlassian-gitflow`
 
