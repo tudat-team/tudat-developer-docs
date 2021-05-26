@@ -32,9 +32,9 @@ Developer Environment
     1. Get your own ``tudat-bundle`` environment from the tudat-team.
     2. Understand the structure of the ``tudat-bundle`` and the purpose of its components.
     3. Familiarize with the mapping between ``tudat`` and ``tudatpy`` source code.
-    4. (%!) Understand the higher level functions of the ``tudat-api``.
-    5. (%!) Familiarize with the available build configurations for ``tudat`` and ``tudatpy``.
-    6. (%!) Know how to build the ``tudat-bundle`` and recognize some common problems that can be encountered.
+    4. ( %! ) Understand the higher level functions of the ``tudat-api``.
+    5. Familiarize with the available build configurations for ``tudat`` and ``tudatpy``.
+    6. ( %! ) Know how to build the ``tudat-bundle`` and recognize some common problems that can be encountered.
 
 
 Getting your tudat-bundle
@@ -42,9 +42,7 @@ Getting your tudat-bundle
 
 The ``tudat-bundle`` environment is available on the `tudat-team  <https://github.com/tudat-team/tudat-bundle/tree/minimal>`_ github repository.
 
-.. warning:: If your machine is running on an Apple M1 processor, please refer to :ref:`my-reference-label` for guidance.
-
-.. note:: Detailed instructions for the download, setup and verification of your own ``tudat-bundle`` can be found in the repository's `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_.
+.. note:: Detailed instructions for the download, setup and verification of your own ``tudat-bundle`` can be found in the repository's `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_ (steps 1-4).
 
 
 
@@ -98,11 +96,10 @@ The ``tudatpy`` Package
 
 The ``tudatpy`` package is a collection of modules, in which the ``C++``-based ``tudat`` source code is exposed into ``python`` bindings.
 
-.. note::  The interfaces of ``C++``-based ``tudat`` source code and the ``python``-based ``tudatpy`` modules are managed by the `pybind11 library  <https://pybind11.readthedocs.io/en/stable/>`_.
-The rules for defining ``C++`` to ``python`` interfaces using ``pybind`` will be presented in detail under :ref:`Exposing C++ in Python`.
+.. note::  The interfaces of ``C++``-based ``tudat`` source code and the ``python``-based ``tudatpy`` modules are managed by the `pybind11 library  <https://pybind11.readthedocs.io/en/stable/>`_. The rules for defining ``C++`` to ``python`` interfaces using ``pybind`` will be presented in detail under :ref:`Exposing C++ in Python`.
 
 
-In ``kernel.cpp`` (see ``schematic tudatpy/kernel directory``) `tudatpy`` modules are bundled into the ``tudatpy`` package.
+In ``kernel.cpp`` (see ``schematic tudatpy/kernel directory``) ``tudatpy`` modules are bundled into the ``tudatpy`` package.
 The following folded code shows the core elements of ``kernel.cpp``.
 It would serve the reader to have a glance through before we walk through the elements in detail.
 
@@ -131,18 +128,18 @@ Module Definition
 
 .. note:: A ``tudatpy`` module can be thought of as collection of ``tudat`` source code, which has been exposed to ``python``.
 
-Modules are defined by their respective exposition functions ``expose_<module_X>( &module )``.
+Modules are defined by their respective exposition functions ``expose_<module_X>( )``.
 These exposition functions fulfill one of two (or sometimes both) tasks:
 
-1. directly expose ``tudat`` source code in the module namespace (see `<module_B>` in :ref:`dir-structure`)
-2. include selected submodules, where ``tudat`` source code has been exposed in nested namespaces (see `<module_A>` in :ref:`dir-structure`)
+1. directly expose ``tudat`` source code in the module namespace (see ``<module_B>`` in :ref:`dir-structure`)
+2. include selected submodules, where ``tudat`` source code has been exposed in nested namespaces (see ``<module_A>`` in :ref:`dir-structure`)
 
-.. note:: Motivate design choice?
-
-
+.. note:: ( %! ) Motivate that design choice?
 
 
-Source Code exposition in module namespace
+
+
+1. Source Code Exposition in Module Namespace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Exposition functions may directly expose ``tudat`` source code content (module classes, functions and attributes) from the respective ``tudat`` namespace to the ``tudatpy`` module namespace.
@@ -165,7 +162,7 @@ The procedure can be summarized in three easy steps
 
 
 
-Source Code exposition in nested namespace
+2. Source Code Exposition in Nested Namespace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For large ``tudatpy`` modules, the exposition of the ``tudat`` source code is divided over submodules.
@@ -198,24 +195,34 @@ In this case, the ``ephemerides`` submodule definition (and any lower levels tha
 
 
 
-
-
-``tudat-api``
-----------------
-4. (%!) Understand the higher level functions of the ``tudat-api``.
+The ``tudat(py)`` API in ``tudat-bundle``
+------------------------------------------
+.. warning:: WIP - ( %! ) show how to use docstrings in ``tudat-bundle`` to contribute to ``tudat(py)``-api
 
 
 Build Configurations
 ----------------------
-5. (%!) Familiarize with the available build configurations for ``tudat`` and ``tudatpy``.
+The ``tudat`` source code can be build using various build configurations.
+These configurations are listed in ``tudat-bundle/CMakeLists.txt`` (l. 43 ff.).
+The user can select the build options by use of the 'ON'/'OFF' keywords.
+See below a section of the ``CMakeLists`` file, which gives an example for an enabled test-suite build option and a disabled boost build option:
+
+.. literalinclude:: /topics/software/snips_environment/CMakeListsFolded.txt
+        :caption: ``tudat-bundle/CMakeLists.txt``
+        :language: cpp
+
+
+.. note:: For more information on the workings of ``CMake`` as a build system, please refer to :ref:`Build System`.
+
+.. warning:: ( %! ) Implications on tudatpy package?
 
 
 
-.. _my-reference-label:
+Building the Project and Known Issues
+--------------------------------------
 
-Executing the build and known issues
-------------------------------------
+For most users the project build is very easy and described in the `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_ (steps 5 ff.)
 
-6. (%!) Know how to build the ``tudat-bundle`` and recognize some common problems that can be encountered.
+.. warning:: If your machine is running on an Apple M1 processor, please consider the steps described below.
 
-see :ref:`my-reference-label`.
+( %! ) Filippo input
