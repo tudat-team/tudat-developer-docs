@@ -32,9 +32,9 @@ Developer Environment
     1. Get your own ``tudat-bundle`` environment from the tudat-team.
     2. Understand the structure of the ``tudat-bundle`` and the purpose of its components.
     3. Familiarize with the mapping between ``tudat`` and ``tudatpy`` source code.
-    4. ( %! ) Understand the higher level functions of the ``tudat-api``.
+    4. Understand the higher level functions of the ``tudat-api``.
     5. Familiarize with the available build configurations for ``tudat`` and ``tudatpy``.
-    6. ( %! ) Know how to build the ``tudat-bundle`` and recognize some common problems that can be encountered.
+    6. Know how to build the ``tudat-bundle`` and recognize some common problems that can be encountered.
 
 
 Getting your tudat-bundle
@@ -138,7 +138,7 @@ These exposition functions fulfill one of two (or sometimes both) tasks:
 
 
 
-
+Development Environment docs
 1. Source Code Exposition in Module Namespace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
