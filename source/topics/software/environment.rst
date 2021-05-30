@@ -134,8 +134,6 @@ These exposition functions fulfill one of two (or sometimes both) tasks:
 1. directly expose ``tudat`` source code in the module namespace (see ``<module_B>`` in :ref:`dir-structure`)
 2. include selected submodules, where ``tudat`` source code has been exposed in nested namespaces (see ``<module_A>`` in :ref:`dir-structure`)
 
-.. note:: ( %! ) Motivate that design choice?
-
 
 
 Development Environment docs
@@ -197,7 +195,7 @@ In this case, the ``ephemerides`` submodule definition (and any lower levels tha
 
 The ``tudat(py)`` API in ``tudat-bundle``
 ------------------------------------------
-.. warning:: WIP - ( %! ) show how to use docstrings in ``tudat-bundle`` to contribute to ``tudat(py)``-api
+.. warning:: WIP - show how to use docstrings in ``tudat-bundle`` to contribute to ``tudat(py)``-api
 
 
 Build Configurations
@@ -212,9 +210,11 @@ See below a section of the ``CMakeLists`` file, which gives an example for an en
         :language: cpp
 
 
+.. warning:: Options that toggle the use of ``SOFA`` amd ``SPICE`` can break the build of ``tudatpy``.
+
 .. note:: For more information on the workings of ``CMake`` as a build system, please refer to :ref:`Build System`.
 
-.. warning:: ( %! ) Implications on tudatpy package?
+
 
 
 
@@ -225,4 +225,4 @@ For most users the project build is very easy and described in the `README  <htt
 
 .. warning:: If your machine is running on an Apple M1 processor, please consider the steps described below.
 
-( %! ) Filippo input
+.. note:: M1 troubleshooting guide is WIP.
