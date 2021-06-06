@@ -136,7 +136,6 @@ These exposition functions fulfill one of two (or sometimes both) tasks:
 
 
 
-Development Environment docs
 1. Source Code Exposition in Module Namespace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
