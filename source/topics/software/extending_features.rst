@@ -1,4 +1,0 @@
-
-Extending Features
-==================
-

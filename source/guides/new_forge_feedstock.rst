@@ -162,7 +162,7 @@ Generating Azure token
 
 Now it's time to generate our Azure token for the organisation.
 
-1. Sign in to your organization in Azure DevOps (`https://dev.azure.com/{yourorganization}`_)
+1. Sign in to your organization in Azure DevOps (`https://dev.azure.com/{yourorganization}`)
 
 2. From your home page, open your user settings, and then select Personal access tokens.
 
