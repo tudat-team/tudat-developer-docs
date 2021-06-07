@@ -64,13 +64,13 @@ references.
 
 .. toctree::
    :maxdepth: 3
-   :caption: Topics
+   :caption: Primer
    :hidden:
 
-   topics/devops
-   topics/docs
-   topics/software
-   topics/bib
+   primer/devops
+   primer/docs
+   primer/software
+   primer/bib
 
 Follow tutorials that demonstrate specific tasks that concern the maintenance,
 development, and documentation of Tudat.
@@ -79,14 +79,14 @@ development, and documentation of Tudat.
 
 .. toctree::
    :maxdepth: 3
-   :caption: Tutorials
+   :caption: Guides
 
-   tutorials/new_conda_package
-   tutorials/new_forge_feedstock
-   tutorials/new_tudat_function
-   tutorials/new_tudat_class
-   tutorials/new_tudat_module
-   tutorials/pdf_with_sphinx
+   guides/new_conda_package
+   guides/new_forge_feedstock
+   guides/new_tudat_function
+   guides/new_tudat_class
+   guides/new_tudat_module
+   guides/pdf_with_sphinx
 
 .. toctree::
    :maxdepth: 3
