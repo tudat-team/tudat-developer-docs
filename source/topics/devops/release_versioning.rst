@@ -1,84 +1,338 @@
-
 Release Versioning
 ==================
 
-.. attention:: The only way for this section to be relevant, is if **all**
-    developers follow the details closely. No more than what is needed in your
-    workflow, and minor details for establishing a mental knowledge map will
-    be provided here. Please read thoroughly!
+.. _`Developer Primer`: https://github.com/tudat-team/developer-primer.git
 
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
+The release versioning section describes the workflow and tools used in release
+versioning used as a Tudat Developer.
 
-    :fa:`graduation-cap` Learning Objective(s)
+.. admonition:: :fa:`graduation-cap` Learning Objectives
 
-    ^^^
-
-    1. Understand what "dependency hell" is and how to avoid it.
-    2. Understand ``MAJOR.MINOR.PATCH`` and when each of them are bumped.
-    3. Understand what happens when ``rever <new_version_number>`` is executed.
-    4. Understand how to maintain the automated changelog.
-
-
-This section describes the bookkeeping required in maintaining a changelog
-with a Tudat repository. The system is simple, and only requires a consistent
-approach and a decent understanding of ``Rever``. The result is a well kept
-changelog, providing traceability in development.
-
+       .. include:: objectives/release_versioning.rst
 
 Semantic Versioning
 -------------------
 
+Tom Preston-Werner originally proposed a simple set of rules and requirements
+that provide a convention for modifying the versioning of software packages
+:cite:p:`preston-werner`. The opening paragraph introduces the concept of
+*dependency hell*:
+
     In the world of software management there exists a dreaded place called
     “dependency hell.” The bigger your system grows and the more packages you
     integrate into your software, the more likely you are to find yourself, one
-    day, in this pit of despair. :cite:p:`preston-werner`
+    day, in this pit of despair.
 
-Given a version number ``MAJOR.MINOR.PATCH``, increment the:
+This chapter relays the Semantic Versioning (SemVer) 2.0.0 convention in an
+effort to avoid any developer needed "dependency hell" to be defined. It is
+further mentioned that the proposed system will only work with an API
+declaration:
+
+    For this system to work, you first need to declare a public API. This may
+    consist of documentation or be enforced by the code itself. Regardless, it
+    is important that this API be clear and precise. Once you identify your
+    public API, you communicate changes to it with specific increments to your
+    version number.
+
+The SemVer 2.0.0 can be summarised by the following set of rules: Given a
+version number ``MAJOR.MINOR.PATCH``, increment the:
 
 - ``MAJOR`` version when you make incompatible API changes,
-- ``MINOR`` version when you add functionality in a backwards compatible manner, and
+- ``MINOR`` version when you add functionality in a backwards compatible
+  manner, and
 - ``PATCH`` version when you make backwards compatible bug fixes.
 
-Additional labels for pre-release and build metadata are available as extensions to the ``MAJOR.MINOR.PATCH`` format.
+Additional labels for pre-release and build metadata are available as
+extensions to the ``MAJOR.MINOR.PATCH`` format. SemVer only focuses on API
+compatibility, however there are common labels appended to the semantic
+version, for example ``1.0.0-alpha``. The list of requirements for the label
+formatting are detailed in SemVer. The important takeaway is that precedence is
+alphanumeric:
+
+.. code-block::
+
+    Precedence: 1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta
+              < 1.0.0-beta  < 1.0.0-beta.2  < 1.0.0-beta.11
+              < 1.0.0-rc.1  < 1.0.0.
+
+.. admonition:: Example
+
+       A proposed guided example flow is as follows:
+
+       - ``alpha`` = in development without caring about (old) unit-tests
+       - ``beta`` = in development and the old (unit) tests are valid
+       - ``rc.1`` = tests for new features are written and valid
+       - ``rc.2`` = additional tests had to be written and those were made valid
+       - ``rc.3`` = more additional tests that were made valid
+
+       However this is just an example flow, not a further set of rules.
+       Depart from it whenever it improves your content.
+
+              Break any of these rules sooner than say anything outright barbarous.
+
+              — George Orwell, "`Politics and the English Language`_"
+
+       .. _`Politics and the English Language`: https://www.orwell.ru/library/essays/politics/english/e_polit/
 
 Rever: Releaser of Versions!
 ----------------------------
 
+.. admonition:: Installation
+
+       Using ``conda``:
+
+       .. code-block:: bash
+
+           conda install rever -c conda-forge
+
+       Using ``pip``:
+
+       .. code-block:: bash
+
+           pip install re-ver
+
+Rever is a xonsh-powered (a language hybrid between bash script and Python),
+cross-platform software release tool. It automates standard activities that are
+carried out during a new release. It is important to be aware of these
+activities, as they are not only relevant at the moment of release.
+The tasks relevant as a Tudat Developer are:
+
+- ``authors``
+- ``version_bump``
+- ``changelog``
+- ``tag``
+- ``push_tag``
+- ``bibtex``
+
+These tasks will be elaborated upon, one-by-one in the following subsections.
+Note that Rever will most likely be set up in repositories
+that you encounter, therefore the explicit procedure of `Initializing Rever`_
+will not be covered here, though the relevant content is covered.
+
+.. _`Initializing Rever`: https://regro.github.io/rever-docs/index.html#initializing-rever
+
+.. admonition:: Example
+
+    Inside the ``developer-primer`` :cite:p:`developer-primer0.0.1` repository used in :ref:`Code Collaboration`,
+    you will find files that are used to configure Rever and some that are
+    autogenerated or updated when executing a release.
+
+    .. code-block:: text
+       :linenos:
+       :emphasize-lines: 2-7,16,17,19
+
+        developer-primer
+        ├── .authors
+        │   ├── AUTHORS
+        │   ├── .authors.yml
+        │   └── .mailmap
+        ├── bibtex.bib
+        ├── CHANGELOG.rst
+        ├── docs
+        │   ├── build
+        │   ├── make.bat
+        │   ├── Makefile
+        │   └── source
+        ├── environment.yaml
+        ├── .gitignore
+        ├── LICENSE
+        ├── news
+        │   └── TEMPLATE.rst
+        ├── README.rst
+        ├── rever.xsh
+        └── source
+            └── tree_trunk.txt
+
+    The highlighted lines indicate the relevant components of the repository
+    which relate to Rever configuration and activities. Grouped by their
+    activity:
+
+    +---------------+---------------------+
+    | Activity      | Components          |
+    +---------------+---------------------+
+    | ``authors``   | - ``.authors/*``    |
+    +---------------+---------------------+
+    | ``bibtex``    | - ``bibtex.bib``    |
+    +---------------+---------------------+
+    | ``changelog`` | - ``news/*``        |
+    |               | - ``CHANGELOG.rst`` |
+    +---------------+---------------------+
+
+    Finally, the ``rever.xsh`` is the configuration file for Rever.
+
+------------
+
 ``rever.xsh``
 *************
 
+The starting point for setting up or maintaining releases versioning with Rever
+is the configuration file ``rever.xsh``. As noted in the introduction, Rever
+uses xonsh, which is a language hybrid between bash script and Python. There's
+a good chance that if you know either of these, or both, you will feel right
+at home. The following ``rever.xsh`` file is a slimmed down version of
+the ``rever`` package's release configuration.
+
+.. code-block:: bash
+       :caption: basic ``rever.xsh``
+
+       $PROJECT = 'rever'
+       $ACTIVITIES = [
+                     'version_bump',  # Changes the version number in various source files (setup.py, __init__.py, etc)
+                     'changelog',  # Uses files in the news folder to create a changelog for release
+                     'tag',  # Creates a tag for the new version number
+                     'push_tag',  # Pushes the tag up to the $TAG_REMOTE
+                     'pypi',  # Sends the package to pypi
+                     'conda_forge',  # Creates a PR into your package's feedstock
+                     'ghrelease'  # Creates a Github release entry for the new tag
+                      ]
+
+       $CHANGELOG_FILENAME = 'CHANGELOG.rst'  # Filename for the changelog
+       $CHANGELOG_TEMPLATE = 'TEMPLATE.rst'  # Filename for the news template
+
+This configuration demonstrates a basic setup for Rever. The variables
+``$PROJECT`` and ``$ACTIVITIES`` are mandatory. Some activities may fail
+without further variable declarations. The following sections will elaborate
+sufficiently on some of the variables relevant to a Tudat Developer's workflow.
+
+.. note::
+
+       Rever has a well maintained, easy to read, explanation on all the
+       options available for each activity in their `activities documentation`_.
+
+.. _`activities documentation`: https://regro.github.io/rever-docs/activities.html
+
+.. admonition:: Example
+
+       Inside the ``developer-primer`` :cite:p:`developer-primer0.0.1`
+       repository, the following configuration is used:
+
+       .. literalinclude:: ../../tmp/developer-primer/rever.xsh
+          :linenos:
+          :caption: ``developer-primer/rever.xsh``
+          :language: bash
+
+------------
+
+``version_bump``
+****************
+
+The ``version_bump`` activity will uses an environment argument
+``$VERSION_BUMP_PATTERNS`` which is of the form ``List[tuple[str, str, str]]``.
+These tuples defined a file path, a regular expression (regex) pattern, and a
+replacement string. The regex match(es) in the specified file will be replaced
+by the desired string.
+
 .. code-block:: bash
 
-    $PROJECT = 'tudat-developer-docs'
-    $ACTIVITIES = [
-                  'version_bump',  # Changes the version number in various source files (setup.py, __init__.py, etc)
-                  'changelog',  # Uses files in the news folder to create a changelog for release
-                  'tag',  # Creates a tag for the new version number
-                  'push_tag',  # Pushes the tag up to the $TAG_REMOTE
-                   # 'pypi',  # Sends the package to pypi
-                   # 'conda_forge',  # Creates a PR into your package's feedstock
-                   # 'ghrelease'  # Creates a Github release entry for the new tag
-                   ]
-    $VERSION_BUMP_PATTERNS = [  # These note where/how to find the version numbers
-                             ('docs/conf.py', r'release\s*=.*', "release='$VERSION'")
-                             ]
+       $VERSION_BUMP_PATTERNS = [
+           ("file_path", r"regex_pattern", "replace_with"),
+           ...
+       ]
 
-    $CHANGELOG_FILENAME = 'CHANGELOG.rst'  # Filename for the changelog
-    $CHANGELOG_TEMPLATE = 'TEMPLATE.rst'  # Filename for the news template
-    $PUSH_TAG_REMOTE = 'git@github.com:tudat-team/tudat-developer-docs.git'  # Repo to push tags to
+The use of regex is minimal and in most cases you can
+use examples in existing repositories.
 
-    $GITHUB_ORG = 'tudat-team'  # Github org for Github releases and conda-forge
-    $GITHUB_REPO = 'tudat-developer-docs'  # Github repo for Github releases  and conda-forge
+.. tip::
+       A very polished resource for testing regex, even allowing
+       for the export of code in your preferred language is
+       `regular expressions 101`_.
 
-Adding a new Author
-*******************
+.. _`regular expressions 101`: https://regex101.com/
 
-``.authors.yml``
+.. admonition:: Example
+
+    Inside the ``developer-primer`` :cite:p:`developer-primer0.0.1` repository used in :ref:`Code Collaboration`,
+    you will find files that are used to configure Rever and some that are
+    autogenerated or updated when executing a release.
+
+    .. literalinclude:: ../../tmp/developer-primer/rever.xsh
+       :caption: ``developer-primer/rever.xsh``
+       :linenos:
+       :language: bash
+       :lineno-start: 12
+       :lines: 12-16
+
+    .. todo::
+              @team, does this need further elaboration?
+
+------------
+
+``authors``
+***********
+
+Manages keeping a contributors listing up-to-date. Executing
+``rever <version>`` will ensure all contributors to the repository are added
+to the ``AUTHORS`` file. By default, this is ordered by number of commits.
+This activity will also track all contributors since the last release,
+tracking all authors who contributed to the following release. These are taken
+directly from git logs, and mapped to an author through the ``.authors.yaml``
+file. When setting Rever up, or committing to a repository for the first time,
+you may need to manually edit the ``.authors.yaml`` file. For example, if
+you have committed using multiple identities, but with the same email, you
+will need to set your main identity, with all others listed as ``aliases``
+in the ``.authors.yaml`` file.
+
+.. todo::
+
+       Example admonition adding oneself to the author configuration of
+       ``.authors.yaml``.
+
+------------
+
+``changelog``
+*************
+
+.. todo::
+
+       ``changelog`` subsection.
+
+
+------------
+
+``tag``
+*******
+
+.. todo::
+
+       ``tag`` subsection.
+
+
+------------
+
+``push_tag``
+*************
+
+.. todo::
+
+       ``push_tag`` subsection.
+
+
+------------
+
+``bibtex``
+***********
+
+.. todo::
+
+       ``bibtex`` subsection.
+
+
+Rever commands
+**************
+
++--------------------------------+--------------------------------------+
+| **Command**                    | **Description**                      |
++--------------------------------+--------------------------------------+
+| ``rever setup``                | Generates activity support files.    |
++--------------------------------+--------------------------------------+
+| ``rever check``                | Check activities.                    |
++--------------------------------+--------------------------------------+
+| ``rever <new_version_number>`` | Executes all activities for release. |
++--------------------------------+--------------------------------------+
+
 
 News Workflow
-***************
+=============
 
 One of the most helpful features of rever is the changelog activity.
 This activity produces a changelog by colating news files. The changelog is
@@ -162,3 +416,10 @@ filtered out too!
 Once the project is ready for a release when running the rever command all the
 files, except the template, in the news folder will be collated and merged into
 a single changelog file.
+
+.. todo::
+
+       Example admonition adding a topic of interest to
+       ``developer-primer/docs/interests.yaml``, then following the news
+       workflow to inform other developers. This is then concluded with
+       the developer executing their first release.
