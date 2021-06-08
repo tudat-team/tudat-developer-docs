@@ -216,12 +216,9 @@ See below a section of the ``CMakeLists`` file, which gives an example for an en
 
 
 
-
 Building the Project and Known Issues
 --------------------------------------
 
 For most users the project build is very easy and described in the `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_ (steps 5 ff.)
 
-.. warning:: If your machine is running on an Apple M1 processor, please consider the steps described below.
-
-.. note:: M1 troubleshooting guide is WIP.
+.. warning:: If your machine is running on an Apple M1 processor, please have a look at this `discussion <https://github.com/tudat-team/tudat-bundle/issues/1>`_.
