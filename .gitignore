@@ -133,3 +133,6 @@ dmypy.json
 rever/
 source/CHANGELOG.rst
 .idea
+
+# Custom for git repo pull
+source/tmp

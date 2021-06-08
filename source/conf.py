@@ -8,13 +8,34 @@ import sys
 import os
 
 if os.name == 'nt':
-    os.environ["PATH"] += os.pathsep + os.path.join(os.environ["CONDA_PREFIX"], "Library/bin/dot")
+    os.environ["PATH"] += os.pathsep + os.path.join(os.environ["CONDA_PREFIX"],
+                                                    "Library/bin/dot")
 
 # -- CUSTOM: Retrieve CHANGELOG on top level for each rebuild
 
 import shutil
 
 shutil.copyfile("../CHANGELOG.rst", "./CHANGELOG.rst")
+
+# -- CUSTOM: Retrieve developer-prime repo for source code examples
+
+import git
+import os
+
+HERE = os.getcwd()
+TEMP = "tmp"
+DEST = os.path.join(HERE, TEMP)
+REPO = "https://github.com/tudat-team/developer-primer"
+TAG = "0.0.1"
+
+if os.path.exists(DEST):
+    shutil.rmtree(DEST)
+
+os.mkdir(DEST)
+
+git.Git(DEST).clone(REPO, branch=TAG)
+# exclude_patterns = ["./tmp/"]
+# print(exclude_patterns)
 
 # -- Path setup --------------------------------------------------------------
 
@@ -33,7 +54,8 @@ shutil.copyfile("../CHANGELOG.rst", "./CHANGELOG.rst")
 # }
 
 # -- CUSTOM: FontAwesome Inline Icons https://sphinx-panels.readthedocs.io/en/latest/#inline-icons
-html_css_files = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
+html_css_files = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
 panels_add_fontawesome_latex = True
 
 # -- CUSTOM: sphinx.ext.todo
@@ -52,7 +74,7 @@ with open("../AUTHORS", "r") as f:
     author = ', '.join(list(re.findall(r"^\*\s(.*)", f.read(), re.MULTILINE)))
 
 # The full version, including alpha/beta/rc tags
-release='0.0.10'
+release = '0.0.11'
 
 # -- General configuration ---------------------------------------------------
 
@@ -71,7 +93,7 @@ extensions = [
 graphviz_output_format = 'svg'  # manual: as apposed to .png by default
 
 # extension specific variables
-bibtex_bibfiles = ['topics/topics.bib']
+bibtex_bibfiles = ['primer/primer.bib']
 bibtex_default_style = 'unsrt'
 
 # Add any paths that contain templates here, relative to this directory.
@@ -87,11 +109,17 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "insipid"
-html_add_permalinks = '\N{SECTION SIGN}'
-html_context = {'display_github': True, 'github_user': 'sphinx-themes', 'github_repo': 'sphinx-themes.org',
-                'conf_py_path': '/sample-docs/', 'commit': 'master'}
-html_copy_source = False
+
+html_theme = "furo"
+# html_theme = "insipid"
+html_title = f'Tudat Developer'
+
+if html_theme == "insipid":
+    html_add_permalinks = '\N{SECTION SIGN}'
+    html_context = {'display_github': True, 'github_user': 'sphinx-themes',
+                    'github_repo': 'sphinx-themes.org',
+                    'conf_py_path': '/sample-docs/', 'commit': 'master'}
+    html_copy_source = False
 
 # html_theme = 'alabaster'
 
