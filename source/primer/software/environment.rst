@@ -45,6 +45,7 @@ The ``tudat-bundle`` environment is available on the `tudat-team  <https://githu
 
 .. note:: Detailed instructions for the download, setup and verification of your own ``tudat-bundle`` can be found in the repository's `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_ (steps 1-4).
 
+.. warning:: If your machine is running on an Apple M1 processor, you may need to follow a slightly different procedure. Please have a look at this `discussion <https://github.com/tudat-team/tudat-bundle/issues/1>`_.
 
 
 Introduction to tudat-bundle
@@ -430,9 +431,8 @@ See below a section of the ``CMakeLists`` file, which gives an example for an en
 Building the Project and Known Issues
 --------------------------------------
 
-For most users the project build is very easy and described in the `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_ (steps 5 ff.)
+For most users the project build is very easy and described in the `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_ (steps 5 ff.).
 
-.. warning:: If your machine is running on an Apple M1 processor, please consider the steps described below.
+.. warning:: If your machine is running on an Apple M1 processor, you may need to follow a slightly different procedure. Please have a look at this `discussion <https://github.com/tudat-team/tudat-bundle/issues/1>`_.
 
-.. note:: M1 troubleshooting guide is WIP.
 >>>>>>> develop:source/primer/software/environment.rst
