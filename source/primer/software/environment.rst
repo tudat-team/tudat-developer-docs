@@ -21,23 +21,25 @@ work on `tudat` and `tudatpy` for a better flow in your end to end development.
     .. include:: objectives/environment.rst
 
 
-Getting your tudat-bundle
+Cloning ``tudat-bundle``
 ##########################
 
 The ``tudat-bundle`` environment is available on the `tudat-team  <https://github.com/tudat-team/tudat-bundle/tree/minimal>`_ GitHub repository.
 
 .. note:: Detailed instructions for the download, setup and verification of your own ``tudat-bundle`` can be found in the repository's `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_ (steps 1-4).
 
+.. warning:: If your machine is running on an Apple M1 processor, you may have to follow a slightly different. Please refer to this `discussion <https://github.com/tudat-team/tudat-bundle/issues/1>`_.
 
 
-Introduction to tudat-bundle
+
+Introduction to ``tudat-bundle``
 #############################
 
-The tudat-bundle consists of three subdirectories:
+The ``tudat-bundle`` consists of three subdirectories:
 
 - ``tudat``, containing the tudat ``C++`` source code.
 - ``tudatpy``, containing the ``tudatpy/kernel`` directory in which the exposure of ``C++`` source code to the tudatpy package is facilitated.
-- ``build``, the build directory containing the compiled ``C++`` tudat code (``build/tudat``), as well as the compiled tudatpy package at ``build/tudatpy/tudatpy/kernel.so``.
+- ``<build>``, the build directory containing the compiled ``C++`` tudat code (``<build>/tudat``), as well as the compiled tudatpy package at ``<build>/tudatpy/tudatpy/kernel.so``.
 
 
 The entirety of exposed C++ functionality in ``tudatpy`` is contained within the ``tudatpy/kernel`` source directory.
@@ -163,7 +165,7 @@ The procedure is largely analogous to the that of :ref:`Source Code exposition i
 3. include selected submodules ``fundamentals`` & ``ephemerides`` via pybind's ``module.add_submodule( )`` function
 
 
-Since the ``tudatpy`` submodules ``fundamentals`` & ``ephemerides`` define the ``C++`` to ``python`` interfaces, the definition of these submodules follows the exact same structure as :ref:`Source Code exposition in module namespace`.
+Since the ``tudatpy`` submodules ``fundamentals`` & ``ephemerides`` define the ``C++`` to ``python`` interfaces, the definition of these submodules follows the exact same structure as in case 1 (Source Code Exposition in Module Namespace).
 For the sake of completeness the definition of the ``ephemerides`` submodule is presented below:
 
 .. literalinclude:: /primer/software/snips_environment/submodule_definition.cpp
@@ -172,7 +174,7 @@ For the sake of completeness the definition of the ``ephemerides`` submodule is 
 
 
 In principle, it is possible for the ``ephemerides`` submodule to delegate the ``C++`` to ``python`` interfaces to even lower-level namespaces.
-In this case, the ``ephemerides`` submodule definition (and any lower levels that delegate the interfaces) would follow the logic of :ref:`Source Code exposition in nested namespace`, while at the lowest level of this module / submodule tree the definition would again follow the logic of :ref:`Source Code exposition in module namespace`.
+In this case, the ``ephemerides`` submodule definition (and any lower levels that delegate the interfaces) would follow the logic of case 2 (Source Code Exposition in Nested Namespace), while at the lowest level of this module / submodule tree the definition would again follow the logic of case 1 (Source Code Exposition in Module Namespace).
 
 
 
@@ -206,6 +208,4 @@ Building the Project and Known Issues
 
 For most users the project build is very easy and described in the `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_ (steps 5 ff.)
 
-.. warning:: If your machine is running on an Apple M1 processor, please consider the steps described below.
-
-.. note:: M1 troubleshooting guide is WIP.
+.. warning:: If your machine is running on an Apple M1 processor, you may have to follow a slightly different. Please refer to this `discussion <https://github.com/tudat-team/tudat-bundle/issues/1>`_. You may also encounter issues with tudat-test, which can be resolved as described `here <https://github.com/tudat-team/tudat-bundle/issues/2>`_.
