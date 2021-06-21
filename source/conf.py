@@ -34,6 +34,8 @@ if os.path.exists(DEST):
 os.mkdir(DEST)
 
 git.Git(DEST).clone(REPO, branch=TAG)
+# exclude_patterns = ["./tmp/"]
+# print(exclude_patterns)
 
 # -- Path setup --------------------------------------------------------------
 
@@ -91,7 +93,7 @@ extensions = [
 graphviz_output_format = 'svg'  # manual: as apposed to .png by default
 
 # extension specific variables
-bibtex_bibfiles = ['topics/topics.bib']
+bibtex_bibfiles = ['primer/primer.bib']
 bibtex_default_style = 'unsrt'
 
 # Add any paths that contain templates here, relative to this directory.

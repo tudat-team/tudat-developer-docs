@@ -1,6 +1,0 @@
-
-Build System
-============
-
-CMake
------
