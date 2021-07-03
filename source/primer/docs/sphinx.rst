@@ -2,6 +2,11 @@
 Sphinx Documentation
 ====================
 
+The instructions to update the tudat developer documentation you are reading or to write new sections is available
+in :ref:`Getting Started with Documentation`.
+
+The remainder of this page is currently under construction.
+
 .. code-block::
 
     sudo apt-get install  texmaker gummi texlive texlive-full texlive-latex-recommended latexdraw intltool-debian lacheck libgtksourceview2.0-0 libgtksourceview2.0-common lmodern luatex po-debconf tex-common texlive-binaries texlive-extra-utils texlive-latex-base texlive-latex-base-doc texlive-luatex texlive-xetex texlive-lang-cyrillic texlive-fonts-extra texlive-science texlive-latex-extra texlive-pstricks
