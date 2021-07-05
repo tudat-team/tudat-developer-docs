@@ -477,6 +477,44 @@ that specify the keyword corresponding to each input argument to the class const
 Exposing class attributes
 #########################
 
+Class attributes in C++ vs. in Python
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are a few differences between the Object-Oriented Programming (OOP) philosophy in C++ and Python. It is important
+to know these differences before proceeding to the next sections. The reader who is already aware of this information
+can skip this section.
+
+One of the principles used in Object-Oriented Programming in C++ is *data encapsulation*. According to this principle,
+class attributes should be accessible only from within the class and *not* by the user dealing with an instance of
+that class. This is principle is (partly) enforced by C++: for instance, class attributes are by default *private*
+(i.e., accessible only from within the class and its methods, also called *friends*) [9]_. This policy is useful mainly for
+security reasons (data protection), but also because interaction with the data contained within a class becomes only
+possible through its public methods; in other words, the user can interact with the class data through a dedicated
+*user interface*, without knowing or dealing with the class's internal functioning directly. This strategy also
+ensures that any changes to the class's internal structure will not affect the code that creates and uses instances
+of that class [10]_. The most basic form of a user interface are *accessors* and *mutators* (hereafter referred to as
+*getters* and *setters*).
+
+In Python, on the other hand, the possibility of keeping class attributes private is not provided. Among Python
+programmers, there is a widespread convention to use attribute names starting with an underscore
+(e.g., ``myclass._myattribute``) to inform other developers and users that such attribute should *not* be called
+directly outside of the class. However, this is only a convention and the programming language does *not* enforce this
+behavior. For this reason, getters and setters are not as common in Python as they are in other OOP languages, such as
+C++ or Java. In addition, the dot notation in Python to access and mutate class attributes makes the code much
+more readable [11]_.
+
+However, there may be cases where getters and setters are needed in Python classes as well. This is the case when code
+is exposed from another OOP language, such as C++, as it happens for tudat: it is obviously easier to maintain the
+same user interface, thus having keeping getters and setters in Python as well. In this case, it is recommended to
+create a *class property*. This solution has the advantage of having getters and setters, while at the same time
+benefitting from the dot notation [12]_.
+
+These concepts will be partially re-explained and applied in `Exposing public attributes`_ (for attributes that
+are not private, thus do not have associated getters and setters) and
+`Exposing private attributes`_ (for attributes that are private, thus do have associated getters and setters, which
+can become *properties* in Python).
+
+
 Exposing public attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -537,7 +575,7 @@ Exposing private attributes
 
 If class attributes are private, it is likely that they can be accessed (and, in some cases, modified) through
 getters and setters. pybind has specific methods from the ``py::class_`` to deal with this situation, namely with
-``def_property()`` and ``def_property_readonly()`` [9]_.
+``def_property()`` and ``def_property_readonly()`` [13]_.
 The latter is used for private attributes that have both getters and setters,
 while the former is used for private attributes that cannot be modified (i.e., they only have a getter).
 The following `example`_, exposing a `spherical harmonics class`_ in tudat, illustrates the usage of both:
@@ -642,7 +680,7 @@ Each element of the enum can then be exposed using the ``value()`` function, tha
    ``tudat::propagators`` namespace).
 
 The final function ``export_values()`` is needed to export the elements to the parent scope; without it,
-``tudat::propagators::hybrid_type`` would be not be valid code [10]_.
+``tudat::propagators::hybrid_type`` would be not be valid code [14]_.
 
 .. todo:: to address: structure of the PYBIND11_MODULE (in kernel) and module/submodule definition. However, this
    overlaps with the content of `this tudat developer guide`_.
@@ -661,5 +699,9 @@ References
 .. [6] `<https://pybind11.readthedocs.io/en/stable/classes.html#inheritance-and-automatic-downcasting>`_
 .. [7] `<https://pybind11.readthedocs.io/en/stable/advanced/classes.html#custom-constructors>`_
 .. [8] `<https://pybind11.readthedocs.io/en/stable/classes.html#overloaded-methods>`_
-.. [9] `<https://pybind11.readthedocs.io/en/stable/classes.html#instance-and-static-fields>`_
-.. [10] `<https://pybind11.readthedocs.io/en/stable/classes.html#enumerations-and-internal-types>`_
+.. [9] `<http://www.cplusplus.com/doc/tutorial/classes/>`_
+.. [10] `<https://press.rebus.community/programmingfundamentals/chapter/encapsulation/>`_
+.. [11] `<https://www.python-course.eu/python3_properties.php>`_
+.. [12] `<https://docs.python.org/3/library/functions.html?highlight=property#property>`_
+.. [13] `<https://pybind11.readthedocs.io/en/stable/classes.html#instance-and-static-fields>`_
+.. [14] `<https://pybind11.readthedocs.io/en/stable/classes.html#enumerations-and-internal-types>`_
