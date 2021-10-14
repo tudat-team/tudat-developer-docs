@@ -58,7 +58,7 @@ references.
 
     :ref:`Extending Features`
 
-    :ref:`Exposing C++ in Python`
+    :ref:`Exposing C++ to Python`
 
 
 
