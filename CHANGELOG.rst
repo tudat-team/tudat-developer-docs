@@ -4,6 +4,23 @@ Tudat Developer Change Log
 
 .. current developments
 
+
+v0.1.0
+====================
+
+**Added:**
+
+* Releasing versions of documentation in :ref:`Sphinx Documentation`
+
+**Changed**
+
+* How to compile the documentation in :ref:`Sphinx Documentation`
+* Transferred some content from `tudat-space <https://docs.tudat.space>`_
+
+**Authors:**
+
+* Filippo Oggionni
+
 v0.0.11
 ====================
 

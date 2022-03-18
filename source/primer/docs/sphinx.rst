@@ -1,4 +1,4 @@
-
+====================
 Sphinx Documentation
 ====================
 
@@ -19,11 +19,10 @@ Sphinx Documentation
 Compile documentation with Sphinx
 **********************************
 
-Compiling Documentation Locally
-################################
 
-This example is a step-by-step guide on how to compile the tudat-space documentation
-locally on your system using ``sphinx``.
+This example is a step-by-step guide on how to compile the tudat documentation
+locally on your system using ``sphinx``. This procedure works to compile documentation for both the `tudat-space
+<https://docs.tudat.space/en/latest/>`_ and the documentation you are currently reading.
 
 .. note::
 
@@ -31,51 +30,33 @@ locally on your system using ``sphinx``.
     information regarding the use of the conda ecosystem, please see :ref:`Getting Started with Conda`.
 
 1. Create an environment that will be satisfy all dependencies required for building documentation, then activate it.
+   This can be done by downloading this ``environment.yaml`` (:download:`yaml <_static/environment.yaml>`), which
+   will install the ``tudat-docs`` conda environment.
 
 .. code:: bash
 
-    conda create -y --name tudat-docs python=3.7 & conda activate tudat-docs
+    conda env create -f environment.yaml & conda activate tudat-docs
 
-2. Install all dependencies for building the documentation. The ``-y`` flag instructs the ``conda-install`` command to install packages without asking for confirmation.
-
-.. code:: batch
-
-    :: Windows systems
-    conda install sphinx -y & ^
-    conda install sphinx_rtd_theme -y & ^
-    conda install sphinx-tabs -y & ^
-    conda install sphinx-copybutton -y & ^
-    pip install rtcat_sphinx_theme & ^
-    pip install sphinxcontrib-contentui
-
-.. code:: bash
-
-    # Unix systems (Mac & Linux)
-    conda install sphinx -y & \
-    conda install sphinx_rtd_theme -y & \
-    conda install sphinx-tabs -y & \
-    conda install sphinx-copybutton -y & \
-    pip install rtcat_sphinx_theme & \
-    pip install sphinxcontrib-contentui
-
-3. Enter the root directory of a repository containing a ``docs`` directory, which contains a ``source`` subdirectory. The following command is specific to cloning and entering the ``tudat-space`` repository.
+2. Enter the root directory of a repository containing a ``docs`` directory, which contains a ``source`` subdirectory.
+   The following command is specific to cloning and entering the ``tudat-space`` repository.
 
 .. code:: bash
 
     git clone https://github.com/tudat-team/tudat-space.git & cd tudat-space
 
-4. Build the documentation using the ``sphinx-build`` command, specifying that html is to be built with the supplied source and output build directory.
+3. Build the documentation using the ``sphinx-build`` command, specifying that html is to be built with the supplied
+   source and output build directory.
 
 .. code:: bash
 
     sphinx-build -b html docs/source docs/build
 
-5. View the local build of the documentation by opening the ``docs/build/index.html`` with your preferred browser.
+4. View the local build of the documentation by opening the ``docs/build/index.html`` with your preferred browser.
 
 .. tip:: **[PyCharm/CLion]** You can do this in by right clicking ``index.html`` in the Project tree and selecting ``Open with Browser``.
 
 
-Compiling Documentation with PyCharm
+Compiling Documentation in PyCharm
 ####################################
 
 If you are using PyCharm, the compilation of the documentation after each edit can be simplified by setting up a
@@ -86,6 +67,8 @@ run configuration tailored for sphinx. The procedure is described below.
 3. From the drop-down menu, select ``Python docs > Sphinx task``;
 
 .. figure:: _static/sphinx_config_pycharm_step1.png
+    :width: 200px
+    :align: center
 
 4. Give a name to the new run configuration;
 5. Make sure that the field ``Command`` is set on ``html``;
@@ -100,3 +83,79 @@ following command from the command line:
 
     sphinx-build -b html docs/source docs/build
 
+**********************************
+Release new versions of the docs
+**********************************
+
+Every time you make a modification to the documentation, you are required to:
+
+1. update the ``CHANGELOG.md``
+2. release a new version of the documentation
+
+While updating the changelog is quite straightforward, the process needed to release a new version deserves some
+explanation.
+
+Versioning with readthedocs
+**********************************
+
+Releasing a new version of the documentation is simple. To do this, we rely on `bumpversion <https://github
+.com/c4urself/bump2version>`_ which in turns uses semantic versioning (or `SemVer <https://semver.org>`_). Semantic
+versioning relies the following structure for stable releases: ``MAJOR.MINOR.PATCH`` (e.g., 1.3.1). For unstable
+releases, the same
+syntax is used with the addition of an additional tag, such as ``MAJOR.MINOR.PATCH.devBUILD`` (e.g., 1.3.1.dev2).
+
+.. seealso::
+    Read more on how readthedocs deals with `versions <https://docs.readthedocs.io/en/stable/versions.html#>`_.
+
+Once you have committed your changes, you can release a new version by typing in the terminal one of the following
+commands:
+
+- ``bumpversion patch``: this increases the patch number (the same can be done with ``bumpversion major`` or ``bumpversion minor``)
+    - 1.1.1 -> 1.1.2.dev0
+    - 1.1.2.dev0 -> 1.1.3.dev0
+    - 1.1.2.dev1 -> 1.1.3.dev0
+
+- ``bumpversion dev``: this increases the build number
+    - 1.1.2.dev0` -> 1.1.2.dev1
+    - 1.1.2` -> ❌ This will break. Patch must be bumped to start ``dev`` suffix.
+
+- ``bumpversion release``: this releases a stable version
+    - 1.1.2.dev0` -> 1.1.2
+    - 1.2.0.dev0` -> 1.2.0
+
+``bumpversion`` creates a dedicated commit every time it is executed and tags such commit with the version number.
+
+Once the commits are pushed to the ``main`` branch on ``origin``, the documentation is built by `readthedocs
+<readthedocs.org>`_.
+Readthedocs uses the tags to build different versions of the documentation, with two additional versions:
+
+- ``latest`` (corresponding to the latest commit on ``main``)
+- ``stable`` (corresponding to the most recent version released)
+
+Depending whether the release is stable or unstable, different things happen:
+
+- if the release is *stable*, the resulting documentation is published on the website and a new version will be visible
+  in the readthedocs menu)
+- if the release is *unstable*, the resulting documentation will be built but not published on the website
+
+.. note::
+
+    The readthedocs menu is located in the bottom left corner of the documentation page (see below).
+
+    .. figure:: _static/readthedocs_menu.png
+        :width: 200px
+        :align: center
+
+Unpublished (or "hidden") versions can still be viewed online (and shared with others through a link) by clicking
+on the readthedocs menu and selecting "Builds".
+
+.. figure:: _static/builds.png
+    :width: 200px
+    :align: center
+
+Clicking on the right build allows to see it in the browser and copy
+the related link to share it with collaborators. This is particularly useful to share drafts of the output
+documentation without modifying stable versions.
+
+.. warning::
+    If the changes are pushed to other branches, no documentation is built.
