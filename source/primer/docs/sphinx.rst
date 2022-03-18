@@ -55,9 +55,8 @@ locally on your system using ``sphinx``. This procedure works to compile documen
 
 .. tip:: **[PyCharm/CLion]** You can do this in by right clicking ``index.html`` in the Project tree and selecting ``Open with Browser``.
 
-
 Compiling Documentation in PyCharm
-####################################
+************************************
 
 If you are using PyCharm, the compilation of the documentation after each edit can be simplified by setting up a
 run configuration tailored for sphinx. The procedure is described below.
@@ -138,6 +137,8 @@ Depending whether the release is stable or unstable, different things happen:
   in the readthedocs menu)
 - if the release is *unstable*, the resulting documentation will be built but not published on the website
 
+.. _readthedocs_menu:
+
 .. note::
 
     The readthedocs menu is located in the bottom left corner of the documentation page (see below).
@@ -159,3 +160,58 @@ documentation without modifying stable versions.
 
 .. warning::
     If the changes are pushed to other branches, no documentation is built.
+
+****************
+Troubleshooting
+****************
+
+In this section, we collect the most recurring bugs that can happen while using sphinx, hoping that it will save
+precious time to future Tudat contributors.
+
+No changes shown in browser
+***************************
+
+It happens often that the browser shows cached data instead of the updated html files. As a result, if you don't
+see your changes, try to empty/delete the cache of your browser (see, e.g., this
+`guide <https://its.uiowa.edu/support/article/719>`_).
+
+No changes shown in online docs
+**********************************
+
+It can happen that, after pushing your changes to the ``origin`` repository, no changes are shown on the actual
+website (e.g., on tudat-space or on this website). Some suggestions to identify the problem will follow:
+
+1. Check that you pushed to the ``main`` branch. The documentation is built by readthedocs only if changes are pushed
+   to that branch.
+2. Check that the build was successful. This can be monitored via the "Builds" link in the readthedocs_menu_ (see
+   screenshot above). If the build was not successful, you can click on it and see the output of the build. This can
+   be helpful to identify where things are going wrong.
+
+.. figure:: _static/build_output.png
+    :width: 600px
+    :align: center
+
+
+Sphinx commands not working
+********************************
+
+If a sphinx command does not work, for instance the following:
+
+.. code-block::
+
+    .. toctree::
+       intro
+       guide
+
+it can be due to many things, but before going crazy into debugging mode, check that the amount of spaces before
+``intro`` and ``guide`` correspond to three empty spaces. Sphinx requires *three* empty spaces, but
+the tab key corresponds to *four* empty spaces: if you use it in sphinx commands, it can generate a lot of confusion
+because the extra white space will break the sphinx command and it is *very* difficult to notice as well.
+To be clear, this will likely **not** work:
+
+.. code-block::
+
+    .. toctree::
+        intro
+        guide
+

@@ -11,6 +11,7 @@ v0.1.0
 **Added:**
 
 * Releasing versions of documentation in :ref:`Sphinx Documentation`
+* Note about clearing browser caches in :ref:`Sphinx Documentation`
 
 **Changed**
 
