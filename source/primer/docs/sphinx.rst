@@ -14,81 +14,89 @@ Sphinx Documentation
     - https://fontawesome.com/
     - Add tutorial/ section on maintaining a bibliography in Sphinx.
 
-Useful Sphinx Extensions
-------------------------
 
-.. panels::
+**********************************
+Compile documentation with Sphinx
+**********************************
 
-    Content of the top-left panel
+Compiling Documentation Locally
+################################
 
-    ---
+This example is a step-by-step guide on how to compile the tudat-space documentation
+locally on your system using ``sphinx``.
 
-    Content of the top-right panel
+.. note::
 
-    :badge:`example,badge-primary`
+    This procedure requires that Anaconda or Miniconda is installed. For
+    information regarding the use of the conda ecosystem, please see :ref:`Getting Started with Conda`.
 
-    ---
+1. Create an environment that will be satisfy all dependencies required for building documentation, then activate it.
 
-    .. dropdown:: :fa:`eye,mr-1` Bottom-left panel
+.. code:: bash
 
-        Hidden content
+    conda create -y --name tudat-docs python=3.7 & conda activate tudat-docs
 
-    ---
+2. Install all dependencies for building the documentation. The ``-y`` flag instructs the ``conda-install`` command to install packages without asking for confirmation.
 
-    .. link-button:: https://example.com
-        :text: Clickable Panel
-        :classes: stretched-link
+.. code:: batch
 
-.. tabbed:: ReStructuredText
+    :: Windows systems
+    conda install sphinx -y & ^
+    conda install sphinx_rtd_theme -y & ^
+    conda install sphinx-tabs -y & ^
+    conda install sphinx-copybutton -y & ^
+    pip install rtcat_sphinx_theme & ^
+    pip install sphinxcontrib-contentui
 
-    .. code-block:: rst
+.. code:: bash
 
-        .. panels::
+    # Unix systems (Mac & Linux)
+    conda install sphinx -y & \
+    conda install sphinx_rtd_theme -y & \
+    conda install sphinx-tabs -y & \
+    conda install sphinx-copybutton -y & \
+    pip install rtcat_sphinx_theme & \
+    pip install sphinxcontrib-contentui
 
-            Content of the top-left panel
+3. Enter the root directory of a repository containing a ``docs`` directory, which contains a ``source`` subdirectory. The following command is specific to cloning and entering the ``tudat-space`` repository.
 
-            ---
+.. code:: bash
 
-            Content of the top-right panel
+    git clone https://github.com/tudat-team/tudat-space.git & cd tudat-space
 
-            :badge:`example,badge-primary`
+4. Build the documentation using the ``sphinx-build`` command, specifying that html is to be built with the supplied source and output build directory.
 
-            ---
+.. code:: bash
 
-            .. dropdown:: :fa:`eye,mr-1` Bottom-left panel
+    sphinx-build -b html docs/source docs/build
 
-                Hidden content
+5. View the local build of the documentation by opening the ``docs/build/index.html`` with your preferred browser.
 
-            ---
+.. tip:: **[PyCharm/CLion]** You can do this in by right clicking ``index.html`` in the Project tree and selecting ``Open with Browser``.
 
-            .. link-button:: https://example.com
-                :text: Clickable Panel
-                :classes: stretched-link
 
-.. tabbed:: MyST Markdown
+Compiling Documentation with PyCharm
+####################################
 
-    .. code-block:: md
+If you are using PyCharm, the compilation of the documentation after each edit can be simplified by setting up a
+run configuration tailored for sphinx. The procedure is described below.
 
-        ````{panels}
-        Content of the top-left panel
+1. From the main toolbar, click on ``Run > Edit Configurations``;
+2. In the window that has just opened, click on the ``+`` button (upper-left) to add a new configuration;
+3. From the drop-down menu, select ``Python docs > Sphinx task``;
 
-        ---
+.. figure:: _static/sphinx_config_pycharm_step1.png
 
-        Content of the top-right panel
+4. Give a name to the new run configuration;
+5. Make sure that the field ``Command`` is set on ``html``;
+6. For the ``input`` and ``output`` fields, select the ``source`` and ``build`` folders respectively.
 
-        {badge}`example,badge-primary`
+.. figure:: _static/sphinx_config_pycharm_step2.png
 
-        ---
+Make sure that the correct run configuration is selected. If so, pressing *Run* will be equivalent to executing the
+following command from the command line:
 
-        ```{dropdown} :fa:`eye,mr-1` Bottom-left panel
-        Hidden content
-        ```
+.. code:: bash
 
-        ---
+    sphinx-build -b html docs/source docs/build
 
-        ```{link-button} https://example.com
-        :text: Clickable Panel
-        :classes: stretched-link
-        ```
-
-        ````
