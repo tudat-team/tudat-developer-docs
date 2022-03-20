@@ -135,7 +135,7 @@ Depending whether the release is stable or unstable, different things happen:
 
 - if the release is *stable*, the resulting documentation is published on the website and a new version will be visible
   in the readthedocs menu)
-- if the release is *unstable*, the resulting documentation will be built but not published on the website
+- if the release is *unstable*, the resulting documentation will not be built nor published on the website
 
 .. _readthedocs_menu:
 
@@ -147,8 +147,8 @@ Depending whether the release is stable or unstable, different things happen:
         :width: 200px
         :align: center
 
-Unpublished (or "hidden") versions can still be viewed online (and shared with others through a link) by clicking
-on the readthedocs menu and selecting "Builds".
+Unpublished (or "hidden") versions can still be activated (by authorized users) to be viewed online (and shared with
+others through a link) by clicking on the readthedocs menu and selecting "Builds", then "Versions" and activate build.
 
 .. figure:: _static/builds.png
     :width: 200px
@@ -214,4 +214,3 @@ To be clear, this will likely **not** work:
     .. toctree::
         intro
         guide
-

@@ -5,6 +5,17 @@ Tudat Developer Change Log
 .. current developments
 
 
+v0.1.1
+====================
+
+**Changed:**
+
+* How unstable releases work in :ref:`Sphinx Documentation`
+
+**Authors:**
+
+* Filippo Oggionni
+
 v0.1.0
 ====================
 
@@ -13,7 +24,7 @@ v0.1.0
 * Releasing versions of documentation in :ref:`Sphinx Documentation`
 * Note about clearing browser caches in :ref:`Sphinx Documentation`
 
-**Changed**
+**Changed:**
 
 * How to compile the documentation in :ref:`Sphinx Documentation`
 * Transferred some content from `tudat-space <https://docs.tudat.space>`_
