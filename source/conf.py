@@ -74,7 +74,7 @@ with open("../AUTHORS", "r") as f:
     author = ', '.join(list(re.findall(r"^\*\s(.*)", f.read(), re.MULTILINE)))
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.1.dev0'
+release = '0.1.1'
 
 # -- General configuration ---------------------------------------------------
 
