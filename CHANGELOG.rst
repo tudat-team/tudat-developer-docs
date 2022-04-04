@@ -5,6 +5,21 @@ Tudat Developer Change Log
 .. current developments
 
 
+v0.1.2
+====================
+
+**Added:**
+
+* :ref:`How to contribute to Tudat`
+
+**Removed:**
+
+* Section about `rever`
+
+**Authors:**
+
+* Filippo Oggionni
+
 v0.1.1
 ====================
 

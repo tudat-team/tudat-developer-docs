@@ -1,5 +1,5 @@
-Release Versioning
-==================
+How to contribute to Tudat
+===========================
 
 .. _`Developer Primer`: https://github.com/tudat-team/developer-primer.git
 
@@ -9,6 +9,79 @@ versioning used as a Tudat Developer.
 .. admonition:: :fa:`graduation-cap` Learning Objectives
 
        .. include:: objectives/release_versioning.rst
+
+
+DevOps checklist
+---------------------------
+
+This is a step-by-step guide for Tudat developers. Since Tudat is an open-source project, a developer is someone who
+wants to add or improve something within the Tudat ecosystem. This includes, but it is not limited to, software
+development, documentation, etc... In this guide, we make no difference between a developer who is part of the core
+tudat team and a developer outside of it. In addition, in this guide we assume that a developer is extending
+functionalities directly from the tudat's `source code <https://github.com/tudat-team/tudat>`_ in C++, which then
+requires to expose code to `tudatpy <https://github.com/tudat-team/tudatpy>`_ and write
+associated `documentation <https://github.com/tudat-team/tudat-multidoc>`_. If a developer is not following exactly
+these steps, they may skip some of the steps.
+
+.. seealso::
+
+    This guide is partly based on the Gitflow concepts. Therefore, before continuing the reader should be familiar
+    with the content of :ref:`Code Collaboration`.
+
+Checklist for developer
+***********************
+
+
+1. Preliminary operations:
+
+   a. Fork original `tudat <https://github.com/tudat-team/tudat>`_ repo and set original repo as upstream
+   b. Branch out from the `develop` branch and open a `feature/FEATURE_NAME` branch tudat-multidoc for
+      documentation, etc…)
+
+2. Develop:
+
+   a. write code for new functionalities
+   b. write new unit tests
+   c. run tests and test build locally
+
+3. Expose and document:
+
+   a. expose C++ code in `tudatpy <https://github.com/tudat-team/tudatpy>`_ (to do so, follow the same steps in 1
+      and 2)
+   b. write docstrings for the associated API reference in `tudat-multidoc <https://github.com/tudat-team/tudat-multidoc>`_ (to do so, follow the same steps in 1
+      and 2)
+   c. [optional] add further documentation on `tudat-space <https://github.com/tudat-team/tudat-space>`_ and
+      examples of new functionality in `tudatpy-examples <https://github.com/tudat-team/tudatpy-examples>`_
+
+4. Final operations:
+
+   a. open a Pull Request (PR) into the `develop` branch of each of the relevant repositories (both for code and
+      documentation)
+   b. interact with a reviewer and, if necessary, implement the requested modifications
+
+Checklist for reviewer
+***********************
+
+Once the PR has been approved, the reviewer (or a member of the core tudat team) will:
+
+1. build and test new conda packages on all operating systems
+2. if a release is needed:
+
+   a. open release branch
+   b. release new version with `bumpversion`
+   c. release new version on Github
+   d. trigger build of new conda packages
+   e. trigger new build of documentation and release new version
+
+.. tip::
+
+    For documentation, it is possible to merge the `feature` branch directly into `master` to speed up the process.
+
+.. note::
+
+    The steps for the reviewer will be soon automated. A beta version of such system is already in place, the current
+    status and guide can be retrieved `here <https://hackmd.io/@mJnsnK9eTqSUJ_WudSrPEQ/S1u1_2Vbc>`_.
+
 
 Semantic Versioning
 -------------------
@@ -74,352 +147,5 @@ alphanumeric:
 
        .. _`Politics and the English Language`: https://www.orwell.ru/library/essays/politics/english/e_polit/
 
-Rever: Releaser of Versions!
-----------------------------
 
-.. admonition:: Installation
 
-       Using ``conda``:
-
-       .. code-block:: bash
-
-           conda install rever -c conda-forge
-
-       Using ``pip``:
-
-       .. code-block:: bash
-
-           pip install re-ver
-
-Rever is a xonsh-powered (a language hybrid between bash script and Python),
-cross-platform software release tool. It automates standard activities that are
-carried out during a new release. It is important to be aware of these
-activities, as they are not only relevant at the moment of release.
-The tasks relevant as a Tudat Developer are:
-
-- ``authors``
-- ``version_bump``
-- ``changelog``
-- ``tag``
-- ``push_tag``
-- ``bibtex``
-
-These tasks will be elaborated upon, one-by-one in the following subsections.
-Note that Rever will most likely be set up in repositories
-that you encounter, therefore the explicit procedure of `Initializing Rever`_
-will not be covered here, though the relevant content is covered.
-
-.. _`Initializing Rever`: https://regro.github.io/rever-docs/index.html#initializing-rever
-
-.. admonition:: Example
-
-    Inside the ``developer-primer`` :cite:p:`developer-primer0.0.1` repository used in :ref:`Code Collaboration`,
-    you will find files that are used to configure Rever and some that are
-    autogenerated or updated when executing a release.
-
-    .. code-block:: text
-       :linenos:
-       :emphasize-lines: 2-7,16,17,19
-
-        developer-primer
-        ├── .authors
-        │   ├── AUTHORS
-        │   ├── .authors.yml
-        │   └── .mailmap
-        ├── bibtex.bib
-        ├── CHANGELOG.rst
-        ├── docs
-        │   ├── build
-        │   ├── make.bat
-        │   ├── Makefile
-        │   └── source
-        ├── environment.yaml
-        ├── .gitignore
-        ├── LICENSE
-        ├── news
-        │   └── TEMPLATE.rst
-        ├── README.rst
-        ├── rever.xsh
-        └── source
-            └── tree_trunk.txt
-
-    The highlighted lines indicate the relevant components of the repository
-    which relate to Rever configuration and activities. Grouped by their
-    activity:
-
-    +---------------+---------------------+
-    | Activity      | Components          |
-    +---------------+---------------------+
-    | ``authors``   | - ``.authors/*``    |
-    +---------------+---------------------+
-    | ``bibtex``    | - ``bibtex.bib``    |
-    +---------------+---------------------+
-    | ``changelog`` | - ``news/*``        |
-    |               | - ``CHANGELOG.rst`` |
-    +---------------+---------------------+
-
-    Finally, the ``rever.xsh`` is the configuration file for Rever.
-
-------------
-
-``rever.xsh``
-*************
-
-The starting point for setting up or maintaining releases versioning with Rever
-is the configuration file ``rever.xsh``. As noted in the introduction, Rever
-uses xonsh, which is a language hybrid between bash script and Python. There's
-a good chance that if you know either of these, or both, you will feel right
-at home. The following ``rever.xsh`` file is a slimmed down version of
-the ``rever`` package's release configuration.
-
-.. code-block:: bash
-       :caption: basic ``rever.xsh``
-
-       $PROJECT = 'rever'
-       $ACTIVITIES = [
-                     'version_bump',  # Changes the version number in various source files (setup.py, __init__.py, etc)
-                     'changelog',  # Uses files in the news folder to create a changelog for release
-                     'tag',  # Creates a tag for the new version number
-                     'push_tag',  # Pushes the tag up to the $TAG_REMOTE
-                     'pypi',  # Sends the package to pypi
-                     'conda_forge',  # Creates a PR into your package's feedstock
-                     'ghrelease'  # Creates a Github release entry for the new tag
-                      ]
-
-       $CHANGELOG_FILENAME = 'CHANGELOG.rst'  # Filename for the changelog
-       $CHANGELOG_TEMPLATE = 'TEMPLATE.rst'  # Filename for the news template
-
-This configuration demonstrates a basic setup for Rever. The variables
-``$PROJECT`` and ``$ACTIVITIES`` are mandatory. Some activities may fail
-without further variable declarations. The following sections will elaborate
-sufficiently on some of the variables relevant to a Tudat Developer's workflow.
-
-.. note::
-
-       Rever has a well maintained, easy to read, explanation on all the
-       options available for each activity in their `activities documentation`_.
-
-.. _`activities documentation`: https://regro.github.io/rever-docs/activities.html
-
-.. admonition:: Example
-
-       Inside the ``developer-primer`` :cite:p:`developer-primer0.0.1`
-       repository, the following configuration is used:
-
-       .. literalinclude:: ../../tmp/developer-primer/rever.xsh
-          :linenos:
-          :caption: ``developer-primer/rever.xsh``
-          :language: bash
-
-------------
-
-``version_bump``
-****************
-
-The ``version_bump`` activity will uses an environment argument
-``$VERSION_BUMP_PATTERNS`` which is of the form ``List[tuple[str, str, str]]``.
-These tuples defined a file path, a regular expression (regex) pattern, and a
-replacement string. The regex match(es) in the specified file will be replaced
-by the desired string.
-
-.. code-block:: bash
-
-       $VERSION_BUMP_PATTERNS = [
-           ("file_path", r"regex_pattern", "replace_with"),
-           ...
-       ]
-
-The use of regex is minimal and in most cases you can
-use examples in existing repositories.
-
-.. tip::
-       A very polished resource for testing regex, even allowing
-       for the export of code in your preferred language is
-       `regular expressions 101`_.
-
-.. _`regular expressions 101`: https://regex101.com/
-
-.. admonition:: Example
-
-    Inside the ``developer-primer`` :cite:p:`developer-primer0.0.1` repository used in :ref:`Code Collaboration`,
-    you will find files that are used to configure Rever and some that are
-    autogenerated or updated when executing a release.
-
-    .. literalinclude:: ../../tmp/developer-primer/rever.xsh
-       :caption: ``developer-primer/rever.xsh``
-       :linenos:
-       :language: bash
-       :lineno-start: 12
-       :lines: 12-16
-
-    .. todo::
-              @team, does this need further elaboration?
-
-------------
-
-``authors``
-***********
-
-Manages keeping a contributors listing up-to-date. Executing
-``rever <version>`` will ensure all contributors to the repository are added
-to the ``AUTHORS`` file. By default, this is ordered by number of commits.
-This activity will also track all contributors since the last release,
-tracking all authors who contributed to the following release. These are taken
-directly from git logs, and mapped to an author through the ``.authors.yaml``
-file. When setting Rever up, or committing to a repository for the first time,
-you may need to manually edit the ``.authors.yaml`` file. For example, if
-you have committed using multiple identities, but with the same email, you
-will need to set your main identity, with all others listed as ``aliases``
-in the ``.authors.yaml`` file.
-
-.. todo::
-
-       Example admonition adding oneself to the author configuration of
-       ``.authors.yaml``.
-
-------------
-
-``changelog``
-*************
-
-.. todo::
-
-       ``changelog`` subsection.
-
-
-------------
-
-``tag``
-*******
-
-.. todo::
-
-       ``tag`` subsection.
-
-
-------------
-
-``push_tag``
-*************
-
-.. todo::
-
-       ``push_tag`` subsection.
-
-
-------------
-
-``bibtex``
-***********
-
-.. todo::
-
-       ``bibtex`` subsection.
-
-
-Rever commands
-**************
-
-+--------------------------------+--------------------------------------+
-| **Command**                    | **Description**                      |
-+--------------------------------+--------------------------------------+
-| ``rever setup``                | Generates activity support files.    |
-+--------------------------------+--------------------------------------+
-| ``rever check``                | Check activities.                    |
-+--------------------------------+--------------------------------------+
-| ``rever <new_version_number>`` | Executes all activities for release. |
-+--------------------------------+--------------------------------------+
-
-
-News Workflow
-=============
-
-One of the most helpful features of rever is the changelog activity.
-This activity produces a changelog by colating news files. The changelog is
-written into the repo and can be used in the GitHub release activity.
-
-.. important:: Ensure that you have one commit prior to executing
-        ``rever <MAJOR.MINOR.PATCH>``, otherwise you will not appear as an
-        author on the Change Log.
-
-1. Go into the ``news/`` directory
-
-2. Copy the ``TEMPLATE.rst`` file to another file in the ``news/`` directory. We suggest using the branchname:
-
-.. code-block:: bash
-
-    $ cp TEMPLATE.rst branch.rst
-
-3. The news files are customizable in the ``rever.xsh`` files. However, the default template looks like:
-
-.. code-block:: md
-
-    **Added:**
-
-    * <news item>
-
-    **Changed:**
-
-    * <news item>
-
-    **Deprecated:**
-
-    * <news item>
-
-    **Removed:**
-
-    * <news item>
-
-    **Fixed:**
-
-    * <news item>
-
-    **Security:**
-
-    * <news item>
-
-4. In this case you can remove the ``* <news item>`` and replace it with your own news entries, e.g.:
-
-.. code-block:: md
-
-    **Added:**
-
-    * New news template tutorial
-
-    **Changed:**
-
-    * <news item>
-
-    **Deprecated:**
-
-    * <news item>
-
-    **Removed:**
-
-    * <news item>
-
-    **Fixed:**
-
-    * <news item>
-
-    **Security:**
-
-    * <news item>
-
-4. Commit your ``branch.rst``.
-
-Feel free to update this file whenever you want! Please don’t use someone
-else’s file name. All of the files in this news/ directory will be merged
-automatically at release time. The <news item> entries will be automatically
-filtered out too!
-
-Once the project is ready for a release when running the rever command all the
-files, except the template, in the news folder will be collated and merged into
-a single changelog file.
-
-.. todo::
-
-       Example admonition adding a topic of interest to
-       ``developer-primer/docs/interests.yaml``, then following the news
-       workflow to inform other developers. This is then concluded with
-       the developer executing their first release.

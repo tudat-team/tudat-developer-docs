@@ -43,6 +43,10 @@ references.
     ^^^
 
 
+    :ref:`Sphinx Documentation`
+
+    :ref:`API Documentation`
+
     ---
 
     .. link-button:: Software Development
