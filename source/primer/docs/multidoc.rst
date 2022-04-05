@@ -1,6 +1,9 @@
 API Documentation
 =================
 
+Multidoc
+---------
+
 **Multidoc** is a tool for purposed towards improving maintainability and
 consistency of docstrings in software that is available across multiple
 programming languages, with fixed language equivalent APIs.
@@ -114,77 +117,8 @@ The concepts can be broken down into the following elements:
 Functions
 ---------
 
-.. note:: The following list is for overview. For a more detailed description
-      of each section, with examples, please go to `numpydoc`_.
+https://numpydoc.readthedocs.io/en/latest/format.html#sections
 
-.. dropdown:: 1. Short summary: **A one-line summary that does not use variable names or
-               the function name.**
-    :title: text-info font-weight-bold
-
-.. dropdown:: 2. Deprecation warning: **A section (use if applicable) to warn users that
-               the object is deprecated.**
-    :title: text-info font-weight-bold
-
-.. dropdown:: 3. Extended Summary: **A few sentences giving an extended description.**
-    :title: text-info font-weight-bold
-
-    This section should be used to clarify functionality, not to discuss
-    implementation detail or background theory, which should rather
-    be explored in the Notes section below.
-
-.. dropdown:: 4. Parameters: **Description of the function arguments, keywords and their respective types.**
-    :title: text-info font-weight-bold
-
-.. dropdown:: 5. **Returns**: Explanation of the returned values and their types.
-    :title: text-info font-weight-bold
-
-    Similar to the Parameters section, except the name of each return value is optional.
-
-.. dropdown:: 6. **Yields**: Explanation of the yielded values and their types. This is relevant to generators only.
-    :title: text-info font-weight-bold
-
-    Similar to the Returns section in that the name of each value is optional,
-    but the type of each value is always required.
-
-.. dropdown:: 7. **Receives**: Explanation of parameters passed to a generator’s ``.send()`` method, formatted as for Parameters, above.
-    :title: text-info font-weight-bold
-
-.. dropdown:: 8. **Other Parameters**: An optional section used to describe infrequently used parameters.
-    :title: text-info font-weight-bold
-
-     It should only be used if a function has a large number of
-     keyword parameters, to prevent cluttering the Parameters section.
-
-8. **Other Parameters**: An optional section used to describe infrequently used
-   parameters. It should only be used if a function has a large number of
-   keyword parameters, to prevent cluttering the Parameters section.
-
-9. **Raises**: An optional section detailing which errors get raised and under
-   what conditions.
-
-10. **Warns**: An optional section detailing which warnings get raised and
-    under what conditions, formatted similarly to Raises.
-
-11. **Warnings**: An optional section with cautions to the user in free
-    text/reST.
-
-12. **See Also**: An optional section used to refer to related code. This
-    section can be very useful, but should be used judiciously. The goal is to
-    direct users to other functions they may not be aware of, or have easy
-    means of discovering (by looking at the module docstring, for example).
-    Routines whose docstrings further explain parameters used by this function
-    are good candidates.
-
-13. **Notes**: An optional section that provides additional information about
-    the code, possibly including a discussion of the algorithm. This section
-    may include mathematical equations, written in LaTeX format.
-
-14. **References**: References cited in the Notes section may be listed here.
-
-15. **Examples**: An optional section for examples, using the doctest format.
-    This section is meant to illustrate usage, not to provide a testing
-    framework – for that, use the ``tests/`` directory. While optional, this
-    section is very strongly encouraged.
 
 Classes
 -------

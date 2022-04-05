@@ -9,3 +9,4 @@ Software Documentation
    docs/sphinx
    docs/readthedocs
    docs/multidoc
+   docs/docstrings

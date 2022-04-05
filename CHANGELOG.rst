@@ -10,6 +10,8 @@ v0.1.4
 **Added:**
 
 * Separated page on readthedocs (:ref:`Release an online version`)
+* API docstrings (:ref:`How to write docstrings`)
+* YAML template page (:ref:`YAML templates`)
 
 **Changed:**
 
