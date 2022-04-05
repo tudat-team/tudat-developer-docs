@@ -27,7 +27,7 @@ references.
 
     :ref:`Code Collaboration`
 
-    :ref:`Release Versioning`
+    :ref:`Release versioning`
 
     :ref:`Package Management`
 
