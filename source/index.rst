@@ -45,6 +45,8 @@ references.
 
     :ref:`Sphinx Documentation`
 
+    :ref:`Release an online version`
+
     :ref:`API Documentation`
 
     ---
