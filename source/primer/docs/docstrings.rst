@@ -8,9 +8,6 @@ We will also include a template for documenting enums, classes and (factory) fun
 YAML files
 *************
 
-Basic Concepts
----------------
-
 The source of docstrings are located in yaml files in the `docstring <https://github
 .com/tudat-team/tudat-multidoc/tree/main/docstrings>`_ directory on Github.
 The content is divided over a file tree structure that mimics the structure of the tudatpy exposure (see this
