@@ -7,4 +7,5 @@ Software Documentation
    :caption: Topics
 
    docs/sphinx
+   docs/readthedocs
    docs/multidoc

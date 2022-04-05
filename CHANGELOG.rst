@@ -4,6 +4,32 @@ Tudat Developer Change Log
 
 .. current developments
 
+v0.1.4
+====================
+
+**Added:**
+
+* Separated page on readthedocs (:ref:`Release an online version`)
+
+**Changed:**
+
+* Moved readthedocs content from :ref:`Sphinx Documentation` to :ref:`Release an online version`
+* Moved bumpversion content from :ref:`Sphinx Documentation` to :ref:`Releasing a new version with bumpversion`
+
+**Authors:**
+
+* Filippo Oggionni
+
+v0.1.3
+====================
+
+**Changed:**
+
+* Structure of :ref:`Development Operations`
+
+**Authors:**
+
+* Filippo Oggionni
 
 v0.1.2
 ====================

@@ -9,6 +9,8 @@ This section explains how releases are dealt with in the tudat ecosystem.
 
        .. include:: objectives/versioning.rst
 
+.. _sem_ver:
+
 Semantic versioning
 --------------------
 
@@ -22,7 +24,7 @@ that provide a convention for modifying the versioning of software packages
     integrate into your software, the more likely you are to find yourself, one
     day, in this pit of despair.
 
-This chapter relays the Semantic Versioning (SemVer) 2.0.0 convention in an
+This chapter relays the Semantic Versioning (`SemVer <https://semver.org>`_) 2.0.0 convention in an
 effort to avoid any developer needed "dependency hell" to be defined. It is
 further mentioned that the proposed system will only work with an API
 declaration:
@@ -72,6 +74,40 @@ alphanumeric:
               — George Orwell, "`Politics and the English Language`_"
 
        .. _`Politics and the English Language`: https://www.orwell.ru/library/essays/politics/english/e_polit/
+
+
+.. _bump_version:
+
+Releasing a new version with bumpversion
+-----------------------------------------
+
+.. warning:: This section is currently only used for releasing new versions of the docs, not of the software. More
+    information about how to release a new version of the software will be provided soon in this page.
+
+
+Releasing a new version of the documentation is simple. To do this, we rely on `bumpversion <https://github
+.com/c4urself/bump2version>`_ which in turns uses semantic versioning (see :ref:`sem_ver`). Semantic
+versioning relies the following structure for stable releases: ``MAJOR.MINOR.PATCH`` (e.g., 1.3.1). For unstable
+releases, the same
+syntax is used with the addition of an additional tag, such as ``MAJOR.MINOR.PATCH.devBUILD`` (e.g., 1.3.1.dev2).
+
+Once you have committed your changes, you can release a new version by typing in the terminal one of the following
+commands:
+
+- ``bumpversion patch``: this increases the patch number (the same can be done with ``bumpversion major`` or ``bumpversion minor``)
+    - 1.1.1 -> 1.1.2.dev0
+    - 1.1.2.dev0 -> 1.1.3.dev0
+    - 1.1.2.dev1 -> 1.1.3.dev0
+
+- ``bumpversion dev``: this increases the build number
+    - 1.1.2.dev0` -> 1.1.2.dev1
+    - 1.1.2` -> ❌ This will break. Patch must be bumped to start ``dev`` suffix.
+
+- ``bumpversion release``: this releases a stable version
+    - 1.1.2.dev0` -> 1.1.2
+    - 1.2.0.dev0` -> 1.2.0
+
+``bumpversion`` creates a dedicated commit every time it is executed and tags such commit with the version number.
 
 
 
