@@ -47,7 +47,9 @@ references.
 
     :ref:`Release an online version`
 
-    :ref:`API Documentation`
+    :ref:`Multidoc`
+
+    :ref:`How to write docstrings`
 
     ---
 

@@ -5,7 +5,7 @@ How to write docstrings
 In this guide, we will explain how to write docstrings for tudat and tudatpy.
 We will also include a template for documenting enums, classes and (factory) functions.
 
-YAML system
+YAML files
 *************
 
 Basic Concepts
