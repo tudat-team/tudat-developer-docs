@@ -1,5 +1,6 @@
 insipid-sphinx-theme
 sphinxcontrib-bibtex
+sphinxcontrib-contentui
 sphinx-panels
 graphviz
 furo
