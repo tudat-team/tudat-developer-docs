@@ -5,6 +5,8 @@ How to write docstrings
 In this guide, we will explain how to write docstrings for tudat and tudatpy.
 We will also include a template for documenting enums, classes and (factory) functions.
 
+.. note:: Before diving into this guide, the user should be familiar with the page about :ref:`Exposing C++ to Python`.
+
 YAML files
 *************
 
@@ -176,6 +178,168 @@ yaml files.
 
 Below, a few important aspects of the documentation style are outlined.
 
+Factory functions
+------------------------------------------
+
+.. seealso:: All examples from this subsection have been inspired from (but do not correspond exactly to) `this file
+   <https://github.com/tudat-team/tudat-multidoc/blob/main/docstrings/numerical_simulation/environment_setup/gravity_field.yaml>`_.
+
+Factory functions (FFs) are functions creating instances of objects via the class constructors ) and they are intended
+to be the user's interface with the actual class constructors, such that the users typically do not interact with the
+classes as such. FFs will be used throughout all user guides, examples and tutorials. They will be the user`s
+landing pad in the API. It is therefore the intention to supply all functionality-related information in the
+docstrings of the FF. This may include (but is not limited to) complete explanations for function parameters,
+information about the models (that will be created by the classes), model implementation and links to external
+resources.
+
+.. toggle-header::
+    :header: **Example**
+
+    .. code-block:: yaml
+
+        functions:
+            # Factory function instantiating an object of type CentralGravityFieldSettings (see next example)
+          - name: central # [py]
+          - name: centralGravitySettings # [cpp]
+            short_summary: "Factory function for central gravity field settings object."
+            extended_summary: |
+              Factory function for settings object, defining a point-mass gravity field model with user-defined gravitational parameter.
+            parameters:
+              - name: gravitational_parameter # [py]
+                type: float # [py]
+              - name: gravitationalParameter # [cpp]
+                type: double # [cpp]
+                description: Gravitational parameter defining the point-mass gravity field.
+            returns:
+                type: CentralGravityFieldSettings
+                description: Instance of the :class:`~tudatpy.numerical_simulation.environment_setup.gravity_field.GravityFieldSettings` derived :class:`~tudatpy.numerical_simulation.environment_setup.gravity_field.CentralGravityFieldSettings` class
+
+
+(derived) classes
+------------------------------------------
+
+Classes, on the other hand, are documented in a more minimalistic manner, focused more on code design and hierarchy
+and less on the functional aspects. Constructors of classes that have FFs implemented will not be documented with
+``parameters`` and ``returns`` keys, since users are discouraged from directly using the constructor method.
+``short_description`` of the constructor method will be given by the string ``"Constructor"``.
+``extended_description`` of the constructor method will refer the user to use the respective FF for creating
+instances of the given class.
+
+
+.. toggle-header::
+    :header: **Example**
+
+    .. code-block:: yaml
+
+        classes:
+          # Derived class from GravityFieldSettings (see next example)
+          - name: CentralGravityFieldSettings
+            short_summary: "`GravityFieldSettings` derived class defining settings of point mass gravity field."
+            extended_summary: |
+              Derived class of `GravityFieldSettings` for central gravity fields, which are defined by a single gravitational parameter.
+
+            methods: # [cpp]
+                # Class constructor
+              - name: ctor # [cpp]
+                short_summary: "Constructor." # [cpp]
+                extended_summary: "Instances of the `CentralGravityFieldSettings` class should be created through the `centralGravitySettings` factory function." # [cpp]
+                # Class constructor's parameter
+              - name: getGravitationalParameter # [cpp]
+                short_summary: "Retrieve gravitational parameter." # [cpp]
+                extended_summary: "Function to retrieve gravitational parameter of the settings object." # [cpp]
+                parameters: # [cpp]
+                  - name: None # [cpp]
+                returns: # [cpp]
+                    type: double # [cpp]
+                    description: Gravitational parameter of central gravity field. # [cpp]
+
+
+Base classes
+------------------------------------------
+
+Base classes are to be identified as such (in ``short_description``). Typically, users do not create instances of the
+base classes (but of the derived classes through the dedicated FFs) and this shall also be mentioned in the
+in the ``extended_description``.
+
+.. toggle-header::
+    :header: **Example**
+
+    .. code-block:: yaml
+
+        classes:
+            # Base class
+          - name: GravityFieldSettings
+            short_summary: "Base class for providing settings for automatic gravity field model creation."
+            extended_summary: |
+              This class is a functional base class for settings of gravity field models that require no information in addition to their type.
+              Gravity field model classes requiring additional information must be created using an object derived from this class.
+
+            properties: # [py]
+              - name: gravity_field_type # [py]
+                type: GravityFieldType # [py]
+                description: Type of gravity field model that is to be created. # [py]
+                readonly: True # [py]
+
+            methods:
+              - name: __init__ # [py]
+              - name: ctor # [cpp]
+                short_summary: "Constructor." # [cpp]
+                extended_summary: "Instances of this class are typically not generated by the user. Settings objects for gravity field models should be instantiated through the factory functions of a derived class." # [cpp]
+
+
+Python properties vs. C++ getters/setters
+------------------------------------------
+
+An exception to the analogous structure of the two APIs is the treatment of class attributes.
+
+The original get/set methods of the tudat classes are exposed as "properties" in
+tudatpy classes (see our guide about :ref:`Class attributes in C++ vs. in Python`).
+
+As a result, class attributes are only documented as such for the tudatpy API, while the get/set
+methods of the classes are documented in the tudat API instead.
+
+.. toggle-header::
+    :header: **Example**
+
+    .. code-block:: yaml
+
+        classes:
+            # Derived class
+          - name: CentralGravityFieldSettings
+            short_summary: "`GravityFieldSettings` derived class defining settings of point mass gravity field."
+            extended_summary: |
+              Derived class of `GravityFieldSettings` for central gravity fields, which are defined by a single gravitational parameter.
+
+            # Properties (only for Python)
+            properties: # [py]
+              - name: gravitational_parameter # [py]
+                type: float # [py]
+                description: Gravitational parameter of central gravity field. # [py]
+
+            methods: # [cpp]
+              - name: ctor # [cpp]
+                short_summary: "Constructor." # [cpp]
+                extended_summary: "Instances of the `CentralGravityFieldSettings` class should be created through the `centralGravitySettings` factory function." # [cpp]
+
+                # Getter (only for C++)
+              - name: getGravitationalParameter # [cpp]
+                short_summary: "Retrieve gravitational parameter." # [cpp]
+                extended_summary: "Function to retrieve gravitational parameter of the settings object." # [cpp]
+                parameters: # [cpp]
+                  - name: None # [cpp]
+                returns: # [cpp]
+                    type: double # [cpp]
+                    description: Gravitational parameter of central gravity field. # [cpp]
+
+                # Setter (only for C++)
+              - name: resetGravitationalParameter # [cpp]
+                short_summary: "Reset gravitational parameter." # [cpp]
+                extended_summary: "Function to reset gravitational parameter of the settings object." # [cpp]
+                parameters: # [cpp]
+                  - name: gravitationalParameter # [cpp]
+                    type: double # [cpp]
+                    description: Gravitational parameter of central gravity field that is to be defined by the settings object. # [cpp]
+
 Links within API elements
 ----------------------------
 
@@ -205,47 +369,12 @@ where ``ObjectName`` can be one of the following:
     .. code-block::
 
         :func:`~tudatpy.numerical_simulation.environment_setup.get_default_body_settings`
-        
+
 .. note:: While this is demonstrated here for links to tudatpy methods, a link to any of python, sphinx, pagmo, numpy, scipy, or matplotlib methods is (in theory) also feasible.
 
 .. todo:: Unfortunately, although other object types (such as properties or modules) should work with the same syntax
     (e.g., see sphinx `resource <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#cross-referencing-python-objects>`_),
     it is currently not working on our API system (see this `open issue <https://github.com/tudat-team/tudat-space/issues/27#>`_).
-
-
-
-Factory functions
-------------------------------------------
-
-Factory functions (FFs) are functions creating instances of objects via the class constructors ) and they are intended
-to be the user's interface with the actual class constructors, such that the users typically do not interact with the
-classes as such. FFs will be used throughout all user guides, examples and tutorials. They will be the user`s
-landing pad in the API. It is therefore the intention to supply all functionality-related information in the
-docstrings of the FF. This may include (but is not limited to) complete explanations for function parameters,
-information about the models (that will be created by the classes), model implementation and links to external
-resources.
-
-Classes, on the other hand, are documented in a more minimalistic manner, focused more on code design and hierarchy
-and less on the functional aspects. Constructors of classes that have FFs implemented will not be documented with
-``parameters`` and ``returns`` keys, since users are discouraged from directly using the constructor method.
-``short_description`` of the constructor method will be given by the string ``"Constructor"``.
-``extended_description`` of the constructor method will refer the user to use the respective FF for creating
-instances of the given class.
-Base classes are to be identified as such (in ``short_description``). Typically, users do not create instances of the
-base classes (but of the derived classes through the dedicated FFs) and this shall also be mentioned in the
-in the ``extended_description``.
-
-
-Python properties vs. C++ getters/setters
-------------------------------------------
-
-An exception to the analogous structure of the two APIs is the treatment of class attributes.
-
-The original get/set methods of the tudat classes are exposed as "properties" in
-tudatpy classes (see our guide about :ref:`Class attributes in C++ vs. in Python`).
-
-As a result, class attributes are only documented as such for the tudatpy API, while the get/set
-methods of the classes are documented in the tudat API instead.
 
 
 Link docstrings to source code
