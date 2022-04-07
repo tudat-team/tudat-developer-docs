@@ -14,6 +14,9 @@ and resources to learn in more detail about the different steps.
 
        .. include:: devops/objectives/devops.rst
 
+.. note:: All the DevOps resources are explained in more detail in different pages. For an overview, you can check
+   our list of guides at the bottom of the page you are reading (see :ref:`DevOps resources`).
+
 
 DevOps checklist
 ---------------------------
@@ -27,10 +30,8 @@ requires to expose code to `tudatpy <https://github.com/tudat-team/tudatpy>`_ (i
 associated `documentation <https://github.com/tudat-team/tudat-multidoc>`_. If a developer is not following exactly
 these steps, they may skip some of the elements in the checklist.
 
-The DevOps checklist is separated in two. One checklist is made for the developer that will for instance add features or documentation. The second checklist is made for the reviewer to approve and distribute the changes made by te developed.
-
-.. note:: The useful resources for each step are linked to below the checklists.
-
+The DevOps checklist is separated in two. One checklist is made for the developer that will for instance add features
+or documentation. The second checklist is made for the reviewer to approve and distribute the changes made by te developed.
 
 Checklist for developer
 ***********************
@@ -85,7 +86,6 @@ Once the PR has been approved, the reviewer (or a member of the core tudat team)
 
     The steps for the reviewer will be soon automated. A beta version of such system is already in place, the current
     status and guide can be retrieved `here <https://hackmd.io/@mJnsnK9eTqSUJ_WudSrPEQ/S1u1_2Vbc>`_.
-
 
 DevOps resources
 ****************
