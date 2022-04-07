@@ -14,12 +14,12 @@ The content is divided over a file tree structure that mimics the structure of t
 `directory <https://github.com/tudat-team/tudatpy/tree/master/tudatpy/kernel>`_ on Github),
 which is the same structure of the tudatpy modules.
 Each file bundles the content of a module exposure function (i.e. Ephemeris, Gravity Field, Rotation, etc). Within each
-yaml file, all module classes are listed under a single "classes:" key, while functions are listed under a single "functions" key.
+yaml file, all module classes are listed under a single "classes" key, while functions are listed under a single "functions" key.
 
-.. note:: For tudatpy-native classes and functions (i.e., not directly exposed from C++ code), the docstrings can be
-   written directly in the Python source files. An example of this can be found
+.. note:: For tudatpy-native classes and functions (i.e., not exposed from C++ code but directly coded in Python), the docstrings can be
+   written directly in the Python source files. Only the name of the class and method needs to be included in the yaml file. An example of this can be found
    `here <https://github.com/tudat-team/tudatpy/blob/9a341fcb4202b2c5be2e5abe7e2119fae99da79a/tudatpy/plotting
-   /_ground_track.py#L14>`_.
+   /_ground_track.py#L14-L42>`_ for the docstring and `here <https://github.com/tudat-team/tudat-multidoc/blob/0f6e77e5469ea4556a65d98796e1d28f143998d8/docstrings/plotting.yaml#L8>`_ for the mention in the yaml file.
 
 
 API Structure Definition
@@ -153,9 +153,9 @@ numpydoc (see `here <https://numpydoc.readthedocs.io/en/latest/format.html#secti
 tudat vs. tudatpy
 ------------------------------------------
 
-Tudat and tudatpy API documentations are generated from the same yaml file.
+Tudat and tudatpy API documentations are generated from the same yaml files.
 
-Tudat-exclusive content is marked by the ``# [cpp]`` tag, while tudatpy-exclusive content is marked by the ``# [py]``.
+Tudat-exclusive content is marked by the ``# [cpp]`` tag, while tudatpy-exclusive content is marked by ``# [py]``.
 
 .. note:: Untagged content will be included in both API documentations.
 
@@ -205,6 +205,8 @@ where ``ObjectName`` can be one of the following:
     .. code-block::
 
         :func:`~tudatpy.numerical_simulation.environment_setup.get_default_body_settings`
+        
+.. note:: While this is demonstrated here for links to tudatpy methods, a link to any of python, sphinx, pagmo, numpy, scipy, or matplotlib methods is (in theory) also feasible.
 
 .. todo:: Unfortunately, although other object types (such as properties or modules) should work with the same syntax
     (e.g., see sphinx `resource <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#cross-referencing-python-objects>`_),
@@ -249,14 +251,14 @@ methods of the classes are documented in the tudat API instead.
 Link docstrings to source code
 ***********************************
 
-The docstrings need to be linked in the code, such that during the API build a connection from docstrings to the code can be made.
+The docstrings need to be linked in the code such that, during the API build, a connection from docstrings to the code can be made.
 This is different between tudat and tudatpy.
 
 tudat
 ------
 
 This is done by placing tags right above the class/function declaration in the header files of the cpp source code
-(`here <https://github.com/tudat-team/tudat/tree/master/include/tudat>`_  on Github) as follows.
+(`here <https://github.com/tudat-team/tudat/tree/master/include/tudat>`_  on Github) as follows:
 
 Classes
 .......
