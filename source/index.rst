@@ -33,6 +33,8 @@ references.
 
     :ref:`Continuous Deployment`
 
+    :ref:`Continuous Integration`
+
     ---
 
     .. link-button:: Software Documentation
