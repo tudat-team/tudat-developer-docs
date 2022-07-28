@@ -30,6 +30,7 @@ In both cases, if changes are caused by the action, they are automatically pushe
 As a reminder, pushing to the feedstock repository will then trigger a build of the conda package trough Azure (as discussed :ref:`below<Azure>`).
 
 Last but not least, this action is triggered automatically either every 24 hours (nightly), or by adding a ``[CI]`` or ``[rerender]`` tag in a commit to a project repository.
+Do note that the emplacement of this tag in the commit message, as well as the capitalisation, do not matter.
 In case the ``[rerender]`` tag is used, the feedstock repository will be rerendered, but the version number will not be bumped.
 If the ``[CI]`` tag is used or it is a nightly release, the version will be bumped, then the feedstock will be rerendered.
 
