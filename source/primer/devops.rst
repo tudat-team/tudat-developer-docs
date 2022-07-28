@@ -55,6 +55,17 @@ continuous integration (CI) service.
     .. include:: devops/objectives/continuous_deployment.rst
 
 
+.. panels::
+    :column: col-lg-12 p-0
+    :header: text-secondary font-weight-bold
+
+    :fa:`cloud-upload` :ref:`Continuous Integration`
+
+    ^^^
+
+    .. include:: devops/objectives/continuous_integration.rst
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Topics
@@ -64,5 +75,6 @@ continuous integration (CI) service.
    devops/release_versioning
    devops/package_manager
    devops/continuous_deployment
+   devops/continuous_integration
 
 .. _test: https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
