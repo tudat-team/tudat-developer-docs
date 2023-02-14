@@ -89,6 +89,7 @@ development, and documentation of Tudat.
    :maxdepth: 3
    :caption: Guides
 
+   guides/defining_environment_variables
    guides/managing_access_tokens
    guides/new_conda_package
    guides/new_forge_feedstock

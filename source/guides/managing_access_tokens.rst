@@ -6,10 +6,13 @@ Managing Access Tokens
 Generating Access Tokens
 ------------------------
 
-In this section, we will provide step-by-step instructions for generating access tokens on Azure and GitHub.
+In this section, we will provide step-by-step instructions for generating access tokens on Anaconda and GitHub.
 
 Generating Organization Tokens on Anaconda
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+   This section is intended for maintainers of the feedstock repositories (at current). If you are not a maintainer, you can safely ignore this section.
 
 1. Navigate to https://anaconda.org/ and sign in
 
@@ -87,6 +90,8 @@ Setting Access Tokens
 
 Defining Access Tokens on Azure Pipelines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Link found in `Defining Environment Variables`_
 
 Defining Tokens in GitHub Actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
