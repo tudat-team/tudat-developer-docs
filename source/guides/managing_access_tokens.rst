@@ -8,10 +8,29 @@ Generating Access Tokens
 
 In this section, we will provide step-by-step instructions for generating access tokens on Azure and GitHub.
 
-Generating Tokens on Azure
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Generating Organization Tokens on Anaconda
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`<TODO>`
+1. Navigate to https://anaconda.org/ and sign in
+
+.. image:: graphics/anaconda_org_token_1.jpeg
+
+2. Go to the organization page, for example, if the organization is named "tudat-team", the URL would be https://anaconda.org/tudat-team
+3. Click on the organization profile ("tudat-team") at the top-right of the page, followed by "Settings".
+
+.. image:: graphics/anaconda_org_token_2.jpeg
+
+4. Fill in the details for creating a new token: name your token, provide the appropriate scope, and specify an expiration date. Then, click "Create".
+
+.. image:: graphics/anaconda_org_token_3.jpeg
+
+5. The newly created organization token will be displayed. Copy the token and keep it safe, as it will only be shown once.
+
+.. image:: graphics/anaconda_org_token_4.jpeg
+
+.. important::
+   It is crucial to keep the organization token private and secure. Ensure that you do not share it or commit it to a public repository, as this could lead to security issues.
+
 
 Generating User Tokens on GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -63,3 +82,11 @@ Generating User Tokens on GitHub
 Generating Organization Tokens on GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Setting Access Tokens
+---------------------
+
+Defining Access Tokens on Azure Pipelines
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Defining Tokens in GitHub Actions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
