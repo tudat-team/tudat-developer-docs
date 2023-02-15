@@ -16,7 +16,7 @@ securely store and manage sensitive information.
 Defining Environment Variables in Python
 ----------------------------------------
 
-In order to use environment variables in a Python script, you can use the `os` module. The following code snippet demonstrates how to access and use an environment variable named `MY_VARIABLE` in a Python script:
+In order to use environment variables in a Python script, you can use the ``os`` module. The following code snippet demonstrates how to access and use an environment variable named ``MY_VARIABLE`` in a Python script:
 
 .. code-block:: python
 
@@ -33,22 +33,22 @@ In order to use environment variables in a Python script, you can use the `os` m
 Defining Persistent Environment Variables in Unix
 -------------------------------------------------
 
-In Unix-based systems, environment variables can be defined persistently across terminal sessions by adding the `export` statements to your shell profile file. The location and name of this file depend on the shell you are using. For the `bash` shell, the file is typically called `.bashrc` and is located in your home directory (`~/`). For the `zsh` shell, the file is typically called `.zshrc` and is also located in your home directory (`~/`).
+In Unix-based systems, environment variables can be defined persistently across terminal sessions by adding the ``export`` statements to your shell profile file. The location and name of this file depend on the shell you are using. For the ``bash`` shell, the file is typically called ``.bashrc`` and is located in your home directory (``~/``). For the ``zsh`` shell, the file is typically called ``.zshrc`` and is also located in your home directory (``~/``).
 
-The following code snippet demonstrates how to define an environment variable named `MY_VARIABLE` in your shell profile file for the `bash` shell:
+The following code snippet demonstrates how to define an environment variable named ``MY_VARIABLE`` in your shell profile file for the ``bash`` shell:
 
 .. code-block:: bash
 
    # Add this line to your .bashrc file located in ~/
    export MY_VARIABLE="value"
 
-Note: If you are using `zsh` instead of `bash`, you would add the `export` statements to your `.zshrc` file located in your home directory (`~/`) instead of your `.bashrc` file.
+Note: If you are using ``zsh`` instead of ``bash``, you would add the ``export`` statements to your ``.zshrc`` file located in your home directory (``~/``) instead of your ``.bashrc`` file.
 
 
-Defining Temporary Environment Variables in Bash script `.sh` (Unix)
+Defining Temporary Environment Variables in Bash script ``.sh`` (Unix)
 --------------------------------------------------------------------
 
-In order to use environment variables in a Bash script, you can use the `export` keyword. The following code snippet demonstrates how to define and access an environment variable named `MY_VARIABLE` in a Bash script:
+In order to use environment variables in a Bash script, you can use the ``export`` keyword. The following code snippet demonstrates how to define and access an environment variable named ``MY_VARIABLE`` in a Bash script:
 
 .. code-block:: bash
 
@@ -66,9 +66,9 @@ In order to use environment variables in a Bash script, you can use the `export`
 Defining Environment Variables in Windows using a .bat File
 ----------------------------------------------------------
 
-In Windows, you can also define environment variables in a batch file (`.bat`) and run it to set the variables persistently.
+In Windows, you can also define environment variables in a batch file (``.bat``) and run it to set the variables persistently.
 
-To define environment variables in a batch file, you can use the `set` command, followed by the name of the variable and its value. Here's an example of setting an environment variable named `MY_VARIABLE` to the value `value` in a batch file, with an exception catch:
+To define environment variables in a batch file, you can use the ``set`` command, followed by the name of the variable and its value. Here's an example of setting an environment variable named ``MY_VARIABLE`` to the value ``value`` in a batch file, with an exception catch:
 
 .. code-block:: batch
 
@@ -80,9 +80,9 @@ To define environment variables in a batch file, you can use the `set` command, 
       echo MY_VARIABLE was set successfully
    )
 
-Save this file with a `.bat` extension, for example, `set_environment_variables.bat`, and double-click on it to run it. If the environment variable was set successfully, the message "MY_VARIABLE was set successfully" will be displayed. If there was an error setting the variable, the message "MY_VARIABLE could not be set" will be displayed instead.
+Save this file with a ``.bat`` extension, for example, ``set_environment_variables.bat``, and double-click on it to run it. If the environment variable was set successfully, the message "MY_VARIABLE was set successfully" will be displayed. If there was an error setting the variable, the message "MY_VARIABLE could not be set" will be displayed instead.
 
-Note: To make the environment variable persistently available across all sessions, you can add the batch file to your startup folder, which is located at `C:\Users\<username>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`.
+Note: To make the environment variable persistently available across all sessions, you can add the batch file to your startup folder, which is located at ``C:\Users\<username>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup``.
 
 Defining Persistent Environment Variables in Windows
 ----------------------------------------------------
@@ -112,21 +112,21 @@ Defining Environment Variables in an Azure Pipeline
 ---------------------------------------------------
 
 .. note::
-   This section is intended for maintainers of the feedstock repositories (at current). If you are not a maintainer, you can safely ignore this section. A more advanced guide on Azure Pipelines can be found `here <https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables>`_.
+   This section is intended for maintainers of the feedstock repositories (at current). If you are not a maintainer, you can safely ignore this section. A more advanced guide on Azure Pipelines can be found ``here <https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables>``_.
 
 1. Navigate to https://dev.azure.com/ and sign in.
 
 .. image:: graphics/azure_pipeline_1.jpeg
 
-2. Click the `feedstock-builds` project under the `tudat-team` organization (https://dev.azure.com/tudat-team).
+2. Click the ``feedstock-builds`` project under the ``tudat-team`` organization (https://dev.azure.com/tudat-team).
 
 .. image:: graphics/azure_pipeline_2.jpeg
 
-3. Click "Pipelines" under the `feedstock-builds` project.
+3. Click "Pipelines" under the ``feedstock-builds`` project.
 
 .. image:: graphics/azure_pipeline_3.jpeg
 
-4. Click on the specific pipeline in which you want to set the environment variable (e.g. `tudat-feedstock`).
+4. Click on the specific pipeline in which you want to set the environment variable (e.g. ``tudat-feedstock``).
 
 .. image:: graphics/azure_pipeline_4.jpeg
 
@@ -138,7 +138,7 @@ Defining Environment Variables in an Azure Pipeline
 
 .. image:: graphics/azure_pipeline_6.jpeg
 
-7. Update an existing token (e.g. `BINSTAR_TOKEN`), or create a new one with the `+` icon.
+7. Update an existing token (e.g. ``BINSTAR_TOKEN``), or create a new one with the ``+`` icon.
 
 .. image:: graphics/azure_pipeline_7.jpeg
 
@@ -149,6 +149,7 @@ Defining Environment Variables in an Azure Project
 --------------------------------------------------
 
 .. note::
-   This section is the desired way of defining environment variables in Azure. However, it is currently not possible to define environment variables in an Azure project due to `conda-smithy` overwriting the pipeline yaml. This is a known issue, and we are working on a solution. In the meantime, please use the method described in the previous section.
+   This section is the desired way of defining environment variables in Azure. However, it is currently not possible to define environment variables in an Azure project due to ``conda-smithy`` overwriting the pipeline yaml. This is a known issue, and we are working on a solution. In the meantime, please use the method described in the previous section.
 
-`<TODO: Add instructions on how to define environment variables in an Azure project>`_
+``<TODO: Add instructions on how to define environment variables in an Azure project>``_
+

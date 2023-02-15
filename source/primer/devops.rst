@@ -1,150 +1,60 @@
-Development Operations
-======================
+DevOps Primer
+=============
 
-DevOps is a set of practices that combines software development (Dev) and
-IT operations (Ops) :cite:p:`wiki:DevOps`. Tudat relies on open
-source solutions for development: GitHub for its hosted version control
-system (VCS), :ref:`Conda` for its package manager, and :ref:`Azure` for its
-continuous integration (CI) service.
+Welcome to the DevOps Primer for the Tudat project! This guide is designed for developers and users who are new to DevOps and want to learn about the different tools and concepts involved in the development operations process.
 
-This section explains how you can make a successful contribution to tudat. It will also point you to the right guides
-and resources to learn in more detail about the different steps.
+This primer will cover the following topics:
 
-.. admonition:: :fa:`graduation-cap` Learning Objectives
+- Environment variables
+- Access tokens
+- Version control (e.g. Git)
+- Continuous integration and deployment
 
-       .. include:: devops/objectives/devops.rst
+Each of these topics will be briefly introduced, with a focus on their definition, importance, and practical applications. At the end of each section, you will find links to detailed guides that cover each topic in more depth.
 
-.. note:: All the DevOps resources are explained in more detail in different pages. For an overview, you can check
-   our list of guides at the bottom of the page you are reading (see :ref:`DevOps resources`).
+Environment Variables
+---------------------
 
+Environment variables are global system variables that are accessible by any process running on a system. They are used to store information such as configuration settings, file paths, and other types of data that need to be available to multiple processes.
 
-DevOps checklist
----------------------------
+In this primer, we will cover the basics of environment variables, including how to define and set them in different operating systems. You will learn about the different methods for setting environment variables locally and persistently, as well as how to set environment variables in Python.
 
-This is a step-by-step guide for Tudat developers. Since Tudat is an open-source project, a developer is someone who
-wants to add or improve something within the Tudat ecosystem. This includes for instance software
-development and documentation. In this guide, we make no difference between a developer who is part of the core
-tudat team and a developer outside of it. In addition, in this guide we assume that a developer is extending
-functionalities directly from tudat `source code <https://github.com/tudat-team/tudat>`_ (in C++), which then
-requires to expose code to `tudatpy <https://github.com/tudat-team/tudatpy>`_ (in Python) and write
-associated `documentation <https://github.com/tudat-team/tudat-multidoc>`_. If a developer is not following exactly
-these steps, they may skip some of the elements in the checklist.
+For more information on environment variables, check out the `Defining Environment Variables <environment-variables.html>`_ guide.
 
-The DevOps checklist is separated in two. One checklist is made for the developer that will for instance add features
-or documentation. The second checklist is made for the reviewer to approve and distribute the changes made by te developed.
+Access Tokens
+-------------
 
-Checklist for developer
-***********************
+Access tokens are secure strings that are used to authenticate access to resources and services. They are often used in conjunction with API keys and other authentication mechanisms to ensure that only authorized users have access to sensitive data and systems.
 
+In this primer, we will cover the basics of access tokens, including how to generate them for different services like Azure, GitHub, and Anaconda Cloud. You will learn about the different methods for setting environment variables for access tokens, as well as how to manage access tokens in a secure and efficient manner.
 
-1. Preliminary operations:
+For more information on access tokens, check out the `Managing Access Tokens <access-tokens.html>`_ guide.
 
-   a. Fork original `tudat <https://github.com/tudat-team/tudat>`_ repo and set original repo as upstream.
-   b. Branch out from the ``develop`` branch and open a ``feature/FEATURE_NAME`` branch (in tudat-multidoc for
-      documentation, tudatpy for code exposition to Python, etc…).
+Version Control
+---------------
 
-2. Develop:
+Version control is a system that tracks changes to files and directories over time, so that you can easily revert to previous versions if necessary. One of the most popular version control systems is Git, which is used extensively in the Tudat project.
 
-   a. Write code for new functionalities.
-   b. Write new unit tests (in C++ and/or Python depending on the nature of the functionalities).
-   c. Run tests and experiment with the local build.
+In this primer, we will cover the basics of version control, including an overview of Git and how it works. You will learn about the different steps involved in setting up a Git repository, making commits and pushing changes to a remote repository, and working with branches and pull requests.
 
-3. Expose and document:
+For more information on version control, check out the `Code Collaboration <code-collaboration.html>`_ guide.
 
-   a. Expose the new C++ code in `tudatpy <https://github.com/tudat-team/tudatpy>`_ (to do so, follow the same steps in 1
-      and 2).
-   b. Write docstrings for the associated API reference in `tudat-multidoc <https://github.com/tudat-team/tudat-multidoc>`_ (to do so, follow the same steps in 1
-      and 2).
-   c. [Optional] Add further documentation on `tudat-space <https://github.com/tudat-team/tudat-space>`_ and
-      examples of new functionality in `tudatpy-examples <https://github.com/tudat-team/tudatpy-examples>`_.
+Continuous Integration and Deployment
+-------------------------------------
 
-4. Final operations:
+Continuous integration and deployment (CI/CD) is a software development practice that involves automatically building, testing, and deploying code changes to production systems. This allows developers to catch bugs and other issues early in the development process, and ensures that code changes are rolled out to production systems quickly and consistently.
 
-   a. Open a Pull Request (PR) into the `develop` branch of each of the relevant repositories (for code,
-      documentation, examples, etc...).
-   b. Interact with a reviewer and, if necessary, implement the requested modifications.
+In this primer, we will cover the basics of CI/CD, including an overview of how it works and how to set up a CI/CD pipeline. You will learn about the different steps involved in automated testing and deployment, and how to ensure that code changes are rolled out to production systems quickly and efficiently.
 
-Checklist for reviewer
-***********************
+For more information on continuous integration and deployment, check out the `Continuous Deployment <continuous-deployment.html>`_ guide.
 
-Once the PR has been approved, the reviewer (or a member of the core tudat team) will:
+Conclusion
+----------
 
-1. Build and test new conda packages on all operating systems.
-2. If a release is needed:
+In this guide, we have covered the essential concepts and tools related to DevOps in the development process. We have explained the importance of environment variables, access tokens, version control, and continuous integration and deployment.
 
-   a. Open release branch.
-   b. Release new version with `bumpversion`.
-   c. Release new version on Github.
-   d. Trigger build of new conda packages.
-   e. Trigger new build of documentation and release new version.
+The use of environment variables and access tokens helps to ensure that sensitive information is stored securely, separate from the code, while version control helps manage changes to the codebase. Continuous integration and deployment streamlines the development process and reduces the risk of errors.
 
-.. tip::
+DevOps is a critical aspect of the software development process, and its importance cannot be overstated. By following best practices and utilizing the right tools, DevOps helps to ensure that software is delivered quickly, efficiently, and securely.
 
-    For documentation, it is possible to merge the `feature` branch directly into `master` to speed up the process.
-
-.. note::
-
-    The steps for the reviewer will be soon automated. A beta version of such system is already in place, the current
-    status and guide can be retrieved `here <https://hackmd.io/@mJnsnK9eTqSUJ_WudSrPEQ/S1u1_2Vbc>`_.
-
-DevOps resources
-****************
-
-Below, you can find specific guides for DevOps in tudat.
-
-.. seealso:: There are also detailed guides about :ref:`Software Development` and :ref:`Software Documentation`.
-
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`github` :ref:`Code Collaboration`
-
-    ^^^
-
-    .. include:: devops/objectives/code_collaboration.rst
-
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`bullhorn` :ref:`Release versioning`
-
-    ^^^
-
-    .. include:: devops/objectives/versioning.rst
-
-
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`cubes` :ref:`Package Management`
-
-    ^^^
-
-    .. include:: devops/objectives/package_manager.rst
-
-
-.. panels::
-    :column: col-lg-12 p-0
-    :header: text-secondary font-weight-bold
-
-    :fa:`cloud-upload` :ref:`Continuous Deployment`
-
-    ^^^
-
-    .. include:: devops/objectives/continuous_deployment.rst
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Topics
-   :hidden:
-
-   devops/code_collaboration
-   devops/versioning
-   devops/package_manager
-   devops/continuous_deployment
-
-.. _test: https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
+In conclusion, we recommend that developers and users new to DevOps familiarize themselves with the concepts and tools covered in this guide and take advantage of the detailed resources provided. By doing so, they will be well-equipped to make successful contributions to their projects and achieve their goals.

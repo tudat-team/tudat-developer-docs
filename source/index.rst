@@ -91,6 +91,7 @@ development, and documentation of Tudat.
 
    guides/defining_environment_variables
    guides/managing_access_tokens
+   guides/contribution_checklist
    guides/new_conda_package
    guides/new_forge_feedstock
    guides/new_tudat_function
