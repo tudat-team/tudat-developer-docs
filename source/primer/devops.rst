@@ -46,7 +46,7 @@ Continuous integration and deployment (CI/CD) is a software development practice
 
 In this primer, we will cover the basics of CI/CD, including an overview of how it works and how to set up a CI/CD pipeline. You will learn about the different steps involved in automated testing and deployment, and how to ensure that code changes are rolled out to production systems quickly and efficiently.
 
-For more information on continuous integration and deployment, check out the `Continuous Deployment <continuous-deployment.html>`_ guide. Working link <https://tudat-developer.readthedocs.io/en/latest/primer/devops/continuous_deployment.html#continuous-deployment>`
+For more information on continuous integration and deployment, check out the `Continuous Deployment <continuous-deployment.html>`_ guide. _Working link <https://tudat-developer.readthedocs.io/en/latest/primer/devops/continuous_deployment.html#continuous-deployment>`_
 
 Conclusion
 ----------
