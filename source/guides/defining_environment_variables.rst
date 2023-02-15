@@ -16,6 +16,31 @@ securely store and manage sensitive information.
 Defining Environment Variables in Python
 ----------------------------------------
 
+In Python, you can define environment variables using the ``os.environ`` dictionary. The following code snippet demonstrates how to define an environment variable named ``MY_VARIABLE`` in Python:
+
+.. code-block:: python
+
+   import os
+
+   os.environ["MY_VARIABLE"] = "value"
+
+An alternative, more secure way to define environment variables in Python is to use the `python-dotenv`_ library. This library allows you to define environment variables in a ``.env`` file and load them into your Python script. The following code snippet demonstrates how to define an environment variable named ``MY_VARIABLE`` in a ``.env`` file:
+
+.. code-block:: bash
+
+   # Add this line to your .env file located in ~/
+   MY_VARIABLE="value"
+
+Then, you can load the environment variables from the ``.env`` file into your Python script using the ``load_dotenv`` function from the ``dotenv`` module:
+
+.. code-block:: python
+
+   from dotenv import load_dotenv
+
+   load_dotenv()
+
+.. _python-dotenv: https://pypi.org/project/python-dotenv/
+
 In order to use environment variables in a Python script, you can use the ``os`` module. The following code snippet demonstrates how to access and use an environment variable named ``MY_VARIABLE`` in a Python script:
 
 .. code-block:: python
