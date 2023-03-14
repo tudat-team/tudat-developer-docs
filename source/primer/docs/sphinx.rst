@@ -214,3 +214,28 @@ To be clear, this will likely **not** work:
     .. toctree::
         intro
         guide
+
+
+****************
+Nbsphinx gallery
+****************
+
+This section shows the various aspects that are relevant when maintaining thumbnail galleries in Sphinx documentation,
+in particular with regard for the example applications on tudat-space.
+
+
+For the example-applications on tudat-space, a thumbnail gallery is used to visualise the various examples. A crucial
+part of this documentation is the fact that the examples themselves are jupyter notebooks. Sphinx has a seamless way of
+integrating both .rst and .ipynb files into the documentation source.
+
+Creation of thumbnail galleries
+*******************************
+
+- .ipynb cell tag
+- .ipynb thumbnail metadata
+- specifying file
+
+If there is not thumbnail available, a default thumbnail is shown
+
+In addition you can specify the "output-index" parameter to choose what output you would like if the cell outputs
+multiple figures.
