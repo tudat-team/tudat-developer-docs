@@ -214,3 +214,76 @@ To be clear, this will likely **not** work:
     .. toctree::
         intro
         guide
+
+
+****************
+Nbsphinx gallery
+****************
+
+This section shows the various aspects that are relevant when creating thumbnail galleries in Sphinx documentation, in particular the example applications on tudat-space.
+
+For the example-applications on tudat-space, a thumbnail gallery is used to visualise the various examples. A crucial part of this documentation is the fact that the examples themselves are jupyter notebooks. Sphinx has a seamless way of integrating both .rst and .ipynb files into the documentation source.
+
+Prerequisites for using thumbnail galleries is that the ``nbsphinx`` and ``spyinx_gallery.load_style`` extensions are added to the list of extensions in the conf.py file of the documentation.
+
+Creation of thumbnail galleries
+*******************************
+
+There are a number of ways to give thumbnails to files. The main way of assigning a thumbnail is by accessing the metadata of the jupyterlab cells and editing the ``tags`` attribute as follows:
+
+.. code-block::
+
+  {
+     "cell_type": "code",
+     "execution_count": <execution_count>,
+     "id": "<cell_id>",
+     "metadata": {
+      "tags": [
+       "nbsphinx-thumbnail" <-- here the thumbnail tag can be added
+      ]
+     },
+     "outputs": [
+      {
+       "data": {
+        "image/png": <image_binary>,
+        "text/plain": [
+         "<Figure size 1500x800 with 1 Axes>"
+        ]
+       },
+       "metadata": {},
+       "output_type": "display_data"
+      }
+     ],
+     "source": [
+     <plotting_code>
+     ]
+    }
+
+
+
+Further customisation is possible -- adding tooltips when hovering over the thumbnail, for example. See 
+`here <https://nbsphinx.readthedocs.io/en/0.7.1/gallery/cell-metadata.html>`_ for more options.
+
+Another way that thumbnails can be determined is by adding an image to the source code that is hardcoded to be linked. This is added to the ``conf.py`` file, which is somewhat inconsistent with the other thumbnails, so this should be avoided if possible. However, the main advantage is that this thumbnail can be set for .rst files, preventing the unnecessary use of jupyter notebooks. Below is an example of a thumbnail added to the ``conf.py`` file:
+
+.. code-block::
+
+  nbsphinx_thumbnails = {
+    './relative/path/to/thumbnail-file': './relative/path/to/image.png',
+    ...
+  }
+
+This structure allows you to build in a number of levels of thumbnail galleries that introduce concepts gradually and take the reader by the hand, rather than showing them a long list of all the possible applications of Tudat.
+
+.. warning::
+  An issue that arises frequently is that the built documentation does not resemble the changes you think you made. In this case it is best to fully rebuild the documentation page by adding the ``-E`` optional argument to the ``sphinx-build`` build command.
+
+Useful tips
+***********
+
+- If there is no thumbnail available, a placeholder thumbnail is shown. 
+- If there are multiple outputs in the selected cell, the last one is used. 
+- You can specify the "output-index" parameter to choose what output you would like if the cell outputs multiple figures. 
+- Make sure only one cell has the nbsphinx-thumbnail metadata.
+
+This paragraph includes a general recommendation on the structure of nbsphinx galleries with .ipynb example code. Currently, there is one .rst file that has a large list of all example .ipynb files. The thumbnails are organised by topic, but are static in the .rst file. A better way is to structure each topic (PyGMO, Propagation or other) with a unique .rst file, so as to replicate the structure of the documentation in the source code. This allows a more structured layout of the nbsphinx galleries. Moreover, examples spanning multiple sub-topics can be given an extra directory which can easily be described using .rst files, rather than having all examples in a single .rst file. 
