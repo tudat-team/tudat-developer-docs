@@ -10,6 +10,8 @@ Software Development
    software/environment
    software/exposing_cpp
    software/extending_features
+   software/kernel_module_exposure
+   software/autocompletion
 
 
 .. panels::
