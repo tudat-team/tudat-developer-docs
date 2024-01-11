@@ -63,6 +63,10 @@ references.
     :ref:`Extending Features`
 
     :ref:`Exposing C++ to Python`
+    
+    :ref:`Exposing kernel modules directly through tudatpy`
+
+    :ref:`Autocompletion in Python`
 
 
 
@@ -92,6 +96,7 @@ development, and documentation of Tudat.
    guides/new_tudat_class
    guides/new_tudat_module
    guides/pdf_with_sphinx
+   guides/hybrid_modules
 
 .. toctree::
    :maxdepth: 3
