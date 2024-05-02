@@ -8,9 +8,11 @@ dependencies:
   - sphinx-tabs
   - sphinx-copybutton
   - sphinxcontrib
+  - sphinxcontrib-contentui
   - sphinx-panels
   - nbsphinx
   - sphinx-gallery
   - ipython
   - jupyter
   - bump2version
+  - Jinja2<3.1
