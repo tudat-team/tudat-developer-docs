@@ -27,7 +27,7 @@ references.
 
     :ref:`Code Collaboration`
 
-    :ref:`Release Versioning`
+    :ref:`Release versioning`
 
     :ref:`Package Management`
 
@@ -45,7 +45,11 @@ references.
 
     :ref:`Sphinx Documentation`
 
-    :ref:`API Documentation`
+    :ref:`Release an online version`
+
+    :ref:`Multidoc`
+
+    :ref:`How to write docstrings`
 
     ---
 
@@ -89,7 +93,9 @@ development, and documentation of Tudat.
    :maxdepth: 3
    :caption: Guides
 
+   guides/defining_environment_variables
    guides/managing_access_tokens
+   guides/contribution_checklist
    guides/new_conda_package
    guides/new_forge_feedstock
    guides/new_tudat_function

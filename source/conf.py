@@ -74,7 +74,7 @@ with open("../AUTHORS", "r") as f:
     author = ', '.join(list(re.findall(r"^\*\s(.*)", f.read(), re.MULTILINE)))
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.2.dev0'
+release = '0.1.4.dev7'
 
 # -- General configuration ---------------------------------------------------
 
@@ -87,7 +87,8 @@ extensions = [
     "sphinx.ext.graphviz",
     # 'sphinx_toolbox.shields',
     'sphinx.ext.todo',
-    "sphinx.ext.autosectionlabel"
+    "sphinx.ext.autosectionlabel",
+    'sphinxcontrib.contentui'
 ]
 
 graphviz_output_format = 'svg'  # manual: as apposed to .png by default

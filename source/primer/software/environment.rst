@@ -28,7 +28,7 @@ The ``tudat-bundle`` environment is available on the `tudat-team  <https://githu
 
 .. note:: Detailed instructions for the download, setup and verification of your own ``tudat-bundle`` can be found in the repository's `README  <https://github.com/tudat-team/tudat-bundle/tree/minimal#readme>`_ (steps 1-4).
 
-.. warning:: If your machine is running on an Apple M1 processor, you may have to follow a slightly different. Please refer to this `discussion <https://github.com/tudat-team/tudat-bundle/issues/1>`_.
+.. warning:: If your machine is running on an Apple M1 processor, you may have to follow a slightly different procedure. Please refer to this `discussion <https://github.com/tudat-team/tudat-bundle/issues/1>`_.
 
 
 
