@@ -30,7 +30,8 @@ locally on your system using ``sphinx``. This procedure works to compile documen
     information regarding the use of the conda ecosystem, please see :ref:`Getting Started with Conda`.
 
 1. Create an environment that will be satisfy all dependencies required for building documentation, then activate it.
-   This can be done by downloading this ``environment.yaml`` (:download:`yaml <_static/environment.yaml>`), which
+   This can be done by downloading this `environment.yaml
+<https://github.com/tudat-team/tudat-space/blob/develop/docs/environment.yaml>`_ file, which
    will install the ``tudat-docs`` conda environment.
 
 .. code:: bash
