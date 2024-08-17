@@ -1,0 +1,27 @@
+
+graph LR
+    %% Subgraphs
+    subgraph sg1[Package<br>Manager]
+        A[<i class="fa fa-box"></i><br>Conda]
+    end
+
+    subgraph sg2[Distributions]
+        B[<i class="fa fa-database"></i><br>Anaconda]
+        C[<i class="fa fa-database"></i><br>Miniconda]
+    end
+
+    subgraph sg3[Tools]
+        G[<i class="fa fa-database"></i><br>Conda-smithy]
+    end
+
+    F[Packages<br><i class="fa fa-cube"></i>]
+    D[Conda-forge<br><i class="fa fa-users"></i>]
+
+    %% Links
+    A -->|Part of|B
+    A -->|Part of|C
+    A -->|Manages|F
+    F -->|Curated by|D
+
+    D -->|Maintains|G
+    G -->|Builds|F

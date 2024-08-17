@@ -1,0 +1,51 @@
+
+graph TD
+%% Subgraph
+    subgraph tudatTeam["Tudat Team on GitHub"]
+    %% Nodes
+        tudatBundle[Tudat Bundle]
+        tudat[Tudat]
+        tudatpy[TudatPy]
+        tudatResources[Tudat Resources]
+        sofaCmake[SOFA CMake]
+        cspiceCmake[CSPICE CMake]
+        nrlmsiseCmake[NRLMSISE-00 CMake]
+    end
+
+%% Styling nodes
+%% style tudatTeam opacity:0.6,fill:#d3d3d3,stroke:#333,stroke-width:2px
+%% style tudatBundle fill:#c2e2c2,stroke:#333,stroke-width:2px
+%% style tudat fill:#c2d4e2,stroke:#333,stroke-width:2px
+%% style tudatpy fill:#c2d4e2,stroke:#333,stroke-width:2px
+%% style tudatResources fill:#eae4e9,stroke:#333,stroke-width:2px
+%% style sofaCmake fill:#ffdcb4,stroke:#333,stroke-width:2px
+%% style cspiceCmake fill:#ffdcb4,stroke:#333,stroke-width:2px
+%% style nrlmsiseCmake fill:#ffdcb4,stroke:#333,stroke-width:2px
+
+%% Connections
+    tudatBundle -->|Depends on| tudat
+    tudatBundle -->|Depends on| tudatpy
+    tudatpy -->|Depends on| tudat
+
+    tudat -->|Uses| tudatResources
+    tudat -->|Uses| sofaCmake
+    tudat -->|Uses| cspiceCmake
+    tudat -->|Uses| nrlmsiseCmake
+
+%% Styling Connections
+linkStyle 0 stroke:#ff6347,stroke-width:2px,stroke-dasharray: 5, 5
+linkStyle 1 stroke:#ff6347,stroke-width:2px,stroke-dasharray: 5, 5
+linkStyle 2 stroke:#ff6347,stroke-width:2px,stroke-dasharray: 5, 5
+linkStyle 3 stroke:#32cd32,stroke-width:2px,stroke-dasharray: 5, 5
+linkStyle 4 stroke:#32cd32,stroke-width:2px,stroke-dasharray: 5, 5
+linkStyle 5 stroke:#32cd32,stroke-width:2px,stroke-dasharray: 5, 5
+linkStyle 6 stroke:#32cd32,stroke-width:2px,stroke-dasharray: 5, 5
+
+%% Hyperlinks
+click tudatBundle "https://github.com/tudat-team/tudat-bundle" _blank
+click tudat "https://github.com/tudat-team/tudat" _blank
+click tudatpy "https://github.com/tudat-team/tudatpy" _blank
+click tudatResources "https://github.com/tudat-team/tudat-resources" _blank
+click sofaCmake "https://github.com/tudat-team/sofa-cmake" _blank
+click cspiceCmake "https://github.com/tudat-team/cspice-cmake" _blank
+click nrlmsiseCmake "https://github.com/tudat-team/nrlmsise-00-cmake" _blank

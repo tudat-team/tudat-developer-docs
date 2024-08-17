@@ -1,4 +1,4 @@
-name: tudat-docs
+name: tudat-developer-docs
 channels:
   - conda-forge
 dependencies:
@@ -17,5 +17,13 @@ dependencies:
   - pip:
     - rtcat_sphinx_theme
     - sphinxcontrib-contentui
+    - sphinx_design
+    - sphinxcontrib-bibtex
     - nbsphinx
-
+    - lxml
+    - sphinxcontrib-imagesvg
+    - furo
+    - sphinxext-rediraffe
+#variables:
+#  VAR1: valueA
+#  VAR2: valueB

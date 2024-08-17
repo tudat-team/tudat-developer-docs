@@ -1,0 +1,17 @@
+
+sequenceDiagram
+    participant G as 🌐 GitHub
+    participant A as ⚙️ Azure Pipelines
+    Note over G: Push to Feedstock
+    G ->> A: Trigger Build
+    activate A
+    Note over A: Build in Progress
+    alt
+        A -->> G: ✅ Build Succeeded
+    else
+        A --x G: ❌ Build Failed
+    end
+    deactivate A
+
+%%    Note over G: Initiates Builds
+%%    Note over A: Executes Build Operations

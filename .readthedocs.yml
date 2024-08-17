@@ -10,5 +10,5 @@ conda:
   
 sphinx:
   builder: html
-  configuration: source/conf.py
+  configuration: src/conf.py
   fail_on_warning: false

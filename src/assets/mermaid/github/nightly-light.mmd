@@ -1,0 +1,28 @@
+%%{
+  init: {
+    'theme': 'light',
+    'darkMode': 'true',
+    'htmlLabels': 'true',
+  }
+}%%
+flowchart LR
+    trigger1([Schedule: <code class='docutils literal notranslate'>0 3 * * *</code>]) -->|triggers| Nightly
+    trigger2([Workflow Dispatch]) -->|triggers| Nightly
+    Nightly --> check_dependencies
+    Nightly --> check_core
+    Nightly --> check_outer
+
+    subgraph check_dependencies [Job: <code class='docutils literal notranslate'>check_dependencies</code>]
+        step1_1[Rerender: <code class='docutils literal notranslate'>conda-smithy-rerender</code>]
+        step1_2[Inform: <code class='docutils literal notranslate'>repository-dispatch</code>]
+    end
+
+    subgraph check_core [Job: <code class='docutils literal notranslate'>check_core</code>]
+        step2_1[Rerender: <code class='docutils literal notranslate'>conda-smithy-rerender</code>]
+        step2_2[Inform: <code class='docutils literal notranslate'>repository-dispatch</code>]
+    end
+
+    subgraph check_outer [Job: <code class='docutils literal notranslate'>check_outer</code>]
+        step3_1[Rerender: <code class='docutils literal notranslate'>conda-smithy-rerender</code>]
+        step3_2[Inform: <code class='docutils literal notranslate'>repository-dispatch</code>]
+    end

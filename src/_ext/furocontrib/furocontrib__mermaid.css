@@ -1,0 +1,11 @@
+.mermaid-container {
+    position: relative;
+}
+
+.mermaid._only-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure they cover the full container */
+    height: 100%; /* Same as above */
+}

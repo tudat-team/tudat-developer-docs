@@ -1,5 +1,5 @@
 ==========================
-Tudat Developer Change Log
+Changelog
 ==========================
 
 .. current developments

@@ -1,0 +1,31 @@
+
+sequenceDiagram
+    participant G as 🌐 GitHub
+    participant A as ⚙️ Azure Pipelines
+    participant AC as ☁️ Anaconda Cloud
+    %% Process Flow
+    G ->> A: Trigger Build
+    activate A
+    Note right of A: Build in Progress
+    alt Build Successful
+        A ->> AC: Upload Package
+        activate AC
+        Note right of AC: Uploading Package
+        AC -->> G: Upload Successful
+        deactivate AC
+    else Build Failed
+        A --x G: Build Failed
+    end
+    deactivate A
+%% Monitoring Loop (Simplified)
+    opt Regular Monitoring
+        loop Every Hour
+            G ->> A: Request Status
+            A -->> G: Build Status
+        end
+    end
+
+%% Annotations
+    Note over G: Initiates Builds and Monitors
+    Note over A: Executes and Reports Build Status
+    Note over AC: Manages and Hosts Package Uploads
