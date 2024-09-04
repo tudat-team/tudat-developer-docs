@@ -52,6 +52,8 @@ locally on your system using ``sphinx``. This procedure works to compile documen
 
     sphinx-build -b html docs/source docs/build
 
+Additional options can be added, such as the ``-E`` flag to force a full rebuild of the documentation. For more information see `the sphinx-build documentation <https://www.sphinx-doc.org/en/master/man/sphinx-build.html#options>`_.
+
 4. View the local build of the documentation by opening the ``docs/build/index.html`` with your preferred browser.
 
 .. tip:: **[PyCharm/CLion]** You can do this in by right clicking ``index.html`` in the Project tree and selecting ``Open with Browser``.
@@ -83,6 +85,91 @@ following command from the command line:
 
     sphinx-build -b html docs/source docs/build
 
+
+Compiling Documentation in VSCode
+**********************************
+
+The following instructions allow you to preview locally rendered documentation in VSCode, similar to the following:
+
+.. figure:: _static/vscode_preview_demo.png
+    :width: 800px
+    :align: center
+
+without having to manually building the documentation each time you make a change. Instead, the documentation is built automatically on each save of a ``.rst`` file.
+
+.. warning::
+
+    The instructions are based on `esbonio v0.16.4 <https://docs.esbon.io/en/esbonio-language-server-v0.16.4/>`_. Future releases might not be compatible with the following instructions.
+
+1. Install required VSCode extensions:
+
+ - `esbonio <https://marketplace.visualstudio.com/items?itemName=swyddfa.esbonio>`_
+ -  `reStructuredText <https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext>`_
+ -  (if not already installed) `Python <https://marketplace.visualstudio.com/items?itemName=ms-python.python>`_
+
+2. Activate the Python environment that contains the required packages for building the documentation.
+
+In a terminal, this can be done by running the following command:
+
+.. code:: bash
+
+    conda activate tudat-docs
+
+which would activate the environment to build the ``tudat-space`` website.
+
+3. Install additional dependencies:
+
+The ``esbonio`` extension requires the ``esbonio`` package to be installed in the activated environment. This can be done by running the following command:
+
+.. code:: bash
+
+    conda install esbonio
+
+You might have to reload the VSCode instance after installing the package.
+Additionally, it seems that the ``pandoc`` package installed in the virtual environment is not recognized in the build process.
+To fix this, you can install the package globally by running the following command:
+
+.. code:: bash
+
+    sudo apt-get install pandoc
+
+4. Compile the documentation and open the preview window:
+
+Navigate to a ``.rst`` file. In the top right corner of the editor, click on the ``Open Preview to the Side`` button:
+
+.. figure:: _static/vscode_open_preview.png
+    :align: center
+
+Alternatively, you can use the command palette (Ctrl+Shift+P) and search for ``Esbonio: Open Preview to the Side``.
+This should compile the documentation locally using Sphinx and open the preview window to the side.
+You can monitor the build process in the Output window by selecting the ``Esbonio`` output channel.
+On each save of the ``.rst`` file, the preview window will update automatically.
+
+.. note::
+
+    Currently it is not possible to use the ``-E`` flag to force a full rebuild of the documentation, see `this issue <https://github.com/swyddfa/esbonio/issues/445>`_. If you want to rebuild the entire documentation, use the manual build process described in the previous section.
+
+5. (Optional): Configure the build commands to mimic the build process of the documentation:
+
+Assuming that the workspace directory is the root of the repository, the following commands can be added to the ``settings.json`` file to mimic the build process of the documentation:
+
+.. code:: json
+
+    {
+       "esbonio.sphinx.buildDir": "${workspaceRoot}/docs/build",
+       "esbonio.sphinx.confDir": "${workspaceRoot}/docs/source",
+       "esbonio.sphinx.doctreeDir": "${buildDir}/.doctrees",
+       "esbonio.sphinx.makeMode": false,
+   }
+
+You can verify that the build command is the same as the one used in the previous section by opening the command palette (Ctrl+Shift+P) and searching for ``Esbonio: Copy Sphinx Build Command``.
+It should return the following command:
+
+.. code:: bash
+
+    sphinx-build -b html *workspaceRoot*/docs/source *workspaceRoot*/docs/build
+
+where ``*workspaceRoot*`` is the path to the root of the repository.
 
 ****************
 Troubleshooting
@@ -138,6 +225,18 @@ To be clear, this will likely **not** work:
         intro
         guide
 
+
+TOC and file tree elements are not updated
+******************************************
+
+When changing the structure of the documentation, it can happen that the table of contents (TOC) or the file tree do not update with a new build.
+This can also happen when changing branches with different structures of the documentation.
+
+To solve this issue, you can trigger a full rebuild of the documentation by adding the ``-E`` flag to the ``sphinx-build`` command:
+
+.. code-block::
+
+    sphinx-build -b html docs/source docs/build -E
 
 ****************
 Nbsphinx gallery
